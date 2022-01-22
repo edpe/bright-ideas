@@ -4,7 +4,7 @@ const Poem = ({ poem }) => {
   return (
     <>
       <div className="layout">
-        <h1>{poem.title}</h1>
+        <h1 className="poemTitle">{poem.title}</h1>
         <p className="poemText">{poem.text}</p>
       </div>
       <style jsx>
@@ -17,6 +17,9 @@ const Poem = ({ poem }) => {
             margin: 0 auto;
             padding: 2em;
             line-height: 2;
+          }
+          .poemTitle {
+            font-family: Futura, Trebuchet MS, Arial, sans-serif;
           }
         `}
       </style>
@@ -33,16 +36,26 @@ export async function getStaticPaths() {
   const { data } = await client.query({
     query: gql`
       query getPoemSlugs {
-        poems {
+        books {
           slug
+          poems {
+            slug
+          }
         }
       }
     `,
   });
 
-  const paths = data.poems.map((poem) => ({
-    params: { slug: poem.slug },
-  }));
+  const paths = data.books
+    .map((book) =>
+      book.poems.map((poem) => ({
+        params: {
+          bookSlug: book.slug,
+          slug: poem.slug,
+        },
+      }))
+    )
+    .flat();
 
   return { paths, fallback: false };
 }
