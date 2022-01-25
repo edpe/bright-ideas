@@ -5,16 +5,48 @@ const Book = ({ book }) => {
   const currentPage = book.slug;
   return (
     <>
-      <div className="layout">
-        <h1>{book.title}</h1>
-        {book.poems.map((poem) => (
-          <div key={poem.id}>
-            <Link href={`/${currentPage}/${poem.slug}`} passHref>
-              <p>{poem.title}</p>
+      <div className="paper">
+        <div className="layout">
+          <h1 className="title">{book.title}</h1>
+          {book.poems.map((poem) => (
+            <Link href={`/${currentPage}/${poem.slug}`} passHref key={poem.id}>
+              <p className="contents">{poem.title}</p>
             </Link>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
+      <style jsx>
+        {`
+          .paper {
+            background-color: #f7efe6;
+            height: 100vh;
+          }
+
+          .layout {
+            max-width: 500px;
+            padding: 2em;
+            line-height: 2;
+            align-items: center;
+          }
+          .contents {
+            white-space: pre-line;
+            color: #474645;
+            font-family: "Josefin Sans", sans-serif;
+            font-weight: 400;
+            font-size: 1.25rem;
+            text-align: center;
+            cursor: pointer;
+          }
+          .title {
+            color: #474645;
+            font-family: "Josefin Sans", sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            text-align: center;
+          }
+        `}
+      </style>
     </>
   );
 };

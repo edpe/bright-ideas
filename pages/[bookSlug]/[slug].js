@@ -3,23 +3,36 @@ import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 const Poem = ({ poem }) => {
   return (
     <>
-      <div className="layout">
-        <h1 className="poemTitle">{poem.title}</h1>
-        <p className="poemText">{poem.text}</p>
+      <div className="paper">
+        <div className="layout">
+          <h1 className="poemTitle">{poem.title}</h1>
+          <p className="poemText">{poem.text}</p>
+        </div>
       </div>
+
       <style jsx>
         {`
-          .poemText {
-            white-space: pre-line;
+          .paper {
+            background-color: #f7efe6;
+            min-height: 100vh;
           }
+
           .layout {
             max-width: 500px;
-            margin: 0 auto;
-            padding: 2em;
-            line-height: 2;
+          }
+
+          .poemText {
+            white-space: pre-line;
+            color: #474645;
+            font-family: "Josefin Sans", sans-serif;
+            font-weight: 400;
+            font-size: 1.25rem;
           }
           .poemTitle {
-            font-family: Futura, Trebuchet MS, Arial, sans-serif;
+            color: #474645;
+            font-family: "Josefin Sans", sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
           }
         `}
       </style>
