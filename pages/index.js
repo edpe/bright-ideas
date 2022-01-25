@@ -5,7 +5,33 @@ import Link from "next/link";
 import Image from "next/image";
 import theme from "../theme.js";
 
-import { isMobile } from "react-device-detect";
+import { useState, useCallback, useEffect } from "react";
+
+const useMediaQuery = (width) => {
+  const [targetReached, setTargetReached] = useState(false);
+
+  const updateTarget = useCallback((e) => {
+    if (e.matches) {
+      setTargetReached(true);
+    } else {
+      setTargetReached(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const media = window.matchMedia(`(max-width: ${width}px)`);
+    media.addEventListener("change", updateTarget);
+
+    // Check on mount (callback is not called until a change occurs)
+    if (media.matches) {
+      setTargetReached(true);
+    }
+
+    return () => media.removeEventListener("change", updateTarget);
+  }, [updateTarget, width]);
+
+  return targetReached;
+};
 
 export default function Home({ books }) {
   return (
@@ -34,19 +60,15 @@ export default function Home({ books }) {
           </div>
           <div>
             <div className="imageWrapper">
-              {isMobile ? (
-                <img
-                  className="lavendarMobile"
-                  src="/images/lavendar_invert_cropped_mobile.jpeg"
-                  alt="lavendar"
-                />
-              ) : (
-                <img
-                  className="lavendar"
-                  src="/images/lavendar_invert_cropped.jpeg"
-                  alt="lavendar"
-                />
-              )}
+              <img
+                className="lavendar"
+                src={
+                  useMediaQuery(800)
+                    ? "/images/lavendar_invert_cropped_mobile.jpeg"
+                    : "/images/lavendar_invert_cropped.jpeg"
+                }
+                alt="lavendar"
+              />
             </div>
           </div>
         </main>
@@ -80,10 +102,6 @@ export default function Home({ books }) {
         }
 
         .lavendar {
-          max-width: 100%;
-        }
-
-        .lavendarMobile {
           max-width: 100%;
         }
 
