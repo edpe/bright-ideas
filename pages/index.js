@@ -47,6 +47,7 @@ export default function Home({ books }) {
         <nav className="navbar">
           <h3>about</h3>
         </nav>
+        <hr className="divider"></hr>
         <main className="layout">
           <div className="bookShelf">
             <h2>Books in this collection:</h2>
@@ -94,6 +95,12 @@ export default function Home({ books }) {
           right: 0;
         }
 
+        .divider {
+          height: 1px;
+          margin: 0;
+          width: 50%;
+        }
+
         .layout {
           display: flex;
           flex-direction: column;
@@ -106,19 +113,39 @@ export default function Home({ books }) {
         }
 
         .navbar {
-          font-size: 1rem;
           padding: 1rem;
           background-color: ${theme.colors.actualBlack};
-          font-family: "Libre Baskerville", serif;
+          font-family: "Merriweather", serif;
         }
 
-        .navbar:focus {
-        }
         .navbar h3 {
           color: ${theme.colors.white};
           margin: 0;
           font-weight: 300;
           text-align: right;
+          font-size: 1rem;
+        }
+
+        @media (min-width: 800px) {
+          .navbar h3 {
+            font-size: 1.5rem;
+          }
+
+          .navbar {
+            padding: 2rem 3rem;
+          }
+
+          .bookShelf h2 {
+            font-size: 2rem;
+          }
+
+          .book h3 {
+            font-size: 1.5rem;
+          }
+
+          .book {
+            min-width: 500px;
+          }
         }
 
         .flowers {
@@ -132,18 +159,17 @@ export default function Home({ books }) {
           align-items: center;
           padding: 2rem;
           color: ${theme.colors.blackDarker};
-
-          font-weight: 300;
         }
 
         .bookShelf h2 {
           color: ${theme.colors.white};
-          font-weight: 700;
+          font-weight: 400;
           margin: 2rem 0;
-          font-family: "Libre Baskerville", serif;
-          font-size: 1.4rem;
+          font-family: "Merriweather", serif;
+          font-weight: 300;
+
+          font-size: 1.5rem;
           text-align: center;
-          font-style: italic;
         }
 
         .book {
@@ -164,9 +190,9 @@ export default function Home({ books }) {
           font-weight: 300;
           margin: 0;
           align-self: center;
-          font-family: "Libre Baskerville", serif;
+          font-family: "Merriweather", serif;
           font-weight: 400;
-          font-size: 1.4rem;
+          font-size: 1rem;
         }
       `}</style>
       <style jsx global>{`
