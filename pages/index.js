@@ -171,11 +171,13 @@ export default function Home({ books }) {
           justify-content: center;
           transition: all 0.3s ease-in-out;
           background-color: ${theme.colors.indigoDye};
-          border-radius: 8px;
+          border-radius: 5% / 50%;
           padding: 1rem;
           margin: 0.1rem;
           min-width: 260px;
-          border: 3px solid ${theme.colors.white};
+          border-color: ${theme.colors.white};
+          border-style: solid;
+          border-width: 2px 4px;
         }
 
         .book h3 {
