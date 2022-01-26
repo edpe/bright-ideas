@@ -26,14 +26,12 @@ const Book = ({ book }) => {
         {`
           .page {
             display: flex;
-            max-height: 100vh;
             flex-direction: column;
-            overflow: hidden;
           }
           .overlay {
             pointer-events: none;
             position: absolute;
-            height: 100vh;
+            height: 100%
             width: 100%;
             background-color: ${theme.colors.copperCrayola};
             opacity: 0.8;
