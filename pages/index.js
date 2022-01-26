@@ -47,7 +47,6 @@ export default function Home({ books }) {
         <nav className="navbar">
           <h3>about</h3>
         </nav>
-        <hr className="divider"></hr>
         <main className="layout">
           <div className="bookShelf">
             <h2>Books in this collection:</h2>
@@ -95,12 +94,6 @@ export default function Home({ books }) {
           right: 0;
         }
 
-        .divider {
-          height: 1px;
-          margin: 0;
-          width: 50%;
-        }
-
         .layout {
           display: flex;
           flex-direction: column;
@@ -113,9 +106,10 @@ export default function Home({ books }) {
         }
 
         .navbar {
-          padding: 1rem;
+          padding: 1rem 2.5rem;
           background-color: ${theme.colors.actualBlack};
           font-family: "Merriweather", serif;
+          border-bottom: 1px solid ${theme.colors.lavenderBlue};
         }
 
         .navbar h3 {
@@ -167,7 +161,6 @@ export default function Home({ books }) {
           margin: 2rem 0;
           font-family: "Merriweather", serif;
           font-weight: 300;
-
           font-size: 1.5rem;
           text-align: center;
         }
@@ -181,7 +174,8 @@ export default function Home({ books }) {
           border-radius: 8px;
           padding: 1rem;
           margin: 0.1rem;
-          min-width: 220px;
+          min-width: 260px;
+          border: 3px solid ${theme.colors.white};
         }
 
         .book h3 {
