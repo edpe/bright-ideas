@@ -2,8 +2,7 @@ import Head from "next/head";
 
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import Link from "next/link";
-import Image from "next/image";
-import theme from "../theme.js";
+import theme from "../theme";
 
 import { useState, useCallback, useEffect } from "react";
 
@@ -53,7 +52,7 @@ export default function Home({ books }) {
             {books.map((book) => (
               <Link href="[slug]" as={book.slug} passHref key={book.id}>
                 <div className="book">
-                  <h3>{book.title}</h3>
+                  <h3 className="bookTitle">{book.title}</h3>
                 </div>
               </Link>
             ))}
@@ -120,28 +119,6 @@ export default function Home({ books }) {
           font-size: 1rem;
         }
 
-        @media (min-width: 800px) {
-          .navbar h3 {
-            font-size: 1.5rem;
-          }
-
-          .navbar {
-            padding: 2rem 3rem;
-          }
-
-          .bookShelf h2 {
-            font-size: 2rem;
-          }
-
-          .book h3 {
-            font-size: 1.5rem;
-          }
-
-          .book {
-            min-width: 500px;
-          }
-        }
-
         .flowers {
           align-self: flex-end;
         }
@@ -169,7 +146,7 @@ export default function Home({ books }) {
           cursor: pointer;
           display: flex;
           justify-content: center;
-          transition: all 0.3s ease-in-out;
+          transition: all 0.5s ease-in-out;
           background-color: ${theme.colors.indigoDye};
           border-radius: 5% / 50%;
           padding: 1rem;
@@ -178,10 +155,15 @@ export default function Home({ books }) {
           border-color: ${theme.colors.white};
           border-style: solid;
           border-width: 2px 4px;
+          color: ${theme.colors.white};
         }
 
-        .book h3 {
-          color: ${theme.colors.white};
+        .book:hover {
+          background-color: ${theme.colors.lavenderBlue};
+          color: ${theme.colors.actualBlack};
+        }
+
+        .bookTitle {
           font-size: 1.5rem;
           font-weight: 300;
           margin: 0;
@@ -189,6 +171,30 @@ export default function Home({ books }) {
           font-family: "Merriweather", serif;
           font-weight: 400;
           font-size: 1rem;
+        }
+
+        @media (min-width: 800px) {
+          .navbar h3 {
+            font-size: 1.5rem;
+          }
+
+          .navbar {
+            padding: 2rem 3rem;
+          }
+
+          .bookShelf h2 {
+            font-size: 2rem;
+          }
+
+          .bookTitle {
+            font-size: 1.5rem;
+          }
+
+          .book {
+            width: 500px;
+            border-radius: 5% / 50%;
+            height: 60px;
+          }
         }
       `}</style>
       <style jsx global>{`

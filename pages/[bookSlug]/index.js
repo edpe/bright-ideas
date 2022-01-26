@@ -1,46 +1,93 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import Link from "next/link";
+import theme from "../../theme";
 
 const Book = ({ book }) => {
   const currentPage = book.slug;
   return (
     <>
-      <div className="paper">
-        <div className="layout">
+      <div className="page">
+        <nav className="navbar">
+          <h3>about</h3>
+        </nav>
+        <div className="overlay"></div>
+
+        <main className="layout">
           <h1 className="title">{book.title}</h1>
           {book.poems.map((poem) => (
             <Link href={`/${currentPage}/${poem.slug}`} passHref key={poem.id}>
               <p className="contents">{poem.title}</p>
             </Link>
           ))}
-        </div>
+        </main>
       </div>
 
       <style jsx>
         {`
-          .paper {
-            background-color: #f7efe6;
+          .page {
+            display: flex;
+            max-height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+          }
+          .overlay {
+            pointer-events: none;
+            position: absolute;
             height: 100vh;
+            width: 100%;
+            background-color: ${theme.colors.copperCrayola};
+            opacity: 0.8;
+            top: 0;
+            right: 0;
           }
 
           .layout {
-            max-width: 500px;
-            padding: 2em;
-            line-height: 2;
-            align-items: center;
+            display: flex;
+            flex-direction: column;
+            background-color: ${theme.colors.copperCrayola};
+            height: 100vh;
+            background-image: url("/images/dried_flowers.jpeg");
+            background-size: cover;
           }
+
+          .lavendar {
+            max-width: 100%;
+          }
+
+          .navbar {
+            padding: 1rem 2.5rem;
+            background-color: ${theme.colors.white};
+            font-family: "Merriweather", serif;
+            border-bottom: 1px solid ${theme.colors.tumbleweed};
+          }
+
+          .navbar h3 {
+            color: ${theme.colors.blackLighter};
+            margin: 0;
+            font-weight: 300;
+            text-align: right;
+            font-size: 1rem;
+          }
+
           .contents {
+            z-index: 1;
+
             white-space: pre-line;
-            color: #474645;
-            font-family: "Josefin Sans", sans-serif;
+            color: ${theme.colors.actualBlack};
+
+            font-family: "Merriweather", serif;
+
             font-weight: 400;
             font-size: 1.25rem;
             text-align: center;
             cursor: pointer;
           }
           .title {
-            color: #474645;
-            font-family: "Josefin Sans", sans-serif;
+            z-index: 1;
+            color: ${theme.colors.actualBlack};
+
+            font-family: "Merriweather", serif;
+
             font-weight: 700;
             font-size: 2rem;
             text-align: center;
