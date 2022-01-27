@@ -42,8 +42,9 @@ const Book = ({ book }) => {
           .overlay {
             pointer-events: none;
             position: absolute;
-            min-height: 175%;
             width: 100%;
+            height: 170%;
+
             background-color: ${theme.colors.brownSugar};
             opacity: 0.4;
             top: 0;
@@ -56,8 +57,6 @@ const Book = ({ book }) => {
             background-image: url("/images/leaves1_inverted.jpeg");
             background-size: cover;
             background-position: center;
-
-            height: 100vh;
           }
 
           .leftColumn {
@@ -68,7 +67,7 @@ const Book = ({ book }) => {
             flex: 1;
             background-color: ${theme.colors.white};
             opacity: 0.8;
-            padding: 4rem;
+            padding: 2rem 4rem;
           }
 
           .rightColumn {
@@ -101,7 +100,7 @@ const Book = ({ book }) => {
 
           .navbar {
             padding: 1rem 1rem;
-            background-color: ${theme.colors.tumbleweed};
+            background-color: ${theme.colors.white};
             font-family: "Merriweather", serif;
             border-bottom: 1px solid ${theme.colors.white};
             display: flex;
