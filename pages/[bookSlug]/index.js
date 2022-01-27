@@ -9,17 +9,28 @@ const Book = ({ book }) => {
       <div className="page">
         <nav className="navbar">
           <h3>about</h3>
+          <Link href="/" passHref>
+            <h3>home</h3>
+          </Link>
         </nav>
-        <div className="overlay"></div>
 
         <main className="layout">
-          <h1 className="title">{book.title}</h1>
-          {book.poems.map((poem) => (
-            <Link href={`/${currentPage}/${poem.slug}`} passHref key={poem.id}>
-              <p className="contents">{poem.title}</p>
-            </Link>
-          ))}
+          <div className="leftColumn" />
+          <div className="centreColumn">
+            <h1 className="title">{book.title}</h1>
+            <ul className="contents">
+              {book.poems.map((poem) => (
+                <li key={poem.id}>
+                  <Link href={`/${currentPage}/${poem.slug}`} passHref>
+                    <p className="poemTitle">{poem.title}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rightColumn" />
         </main>
+        <div className="overlay"></div>
       </div>
 
       <style jsx>
@@ -31,37 +42,75 @@ const Book = ({ book }) => {
           .overlay {
             pointer-events: none;
             position: absolute;
-            height: 100%
+            height: 100%;
             width: 100%;
-            background-color: ${theme.colors.copperCrayola};
-            opacity: 0.8;
+            background-color: ${theme.colors.brownSugar};
+            opacity: 0.3;
             top: 0;
             right: 0;
           }
 
           .layout {
             display: flex;
-            flex-direction: column;
-            background-color: ${theme.colors.copperCrayola};
-            height: 100vh;
-            background-image: url("/images/dried_flowers.jpeg");
+            flex-direction: row;
+            background-image: url("/images/leaves1.jpeg");
             background-size: cover;
+            background-position: center;
+
+            height: 100vh;
           }
 
-          .lavendar {
-            max-width: 100%;
+          .leftColumn {
+            flex: 0;
+          }
+
+          .centreColumn {
+            flex: 1;
+            background-color: ${theme.colors.white};
+            opacity: 0.8;
+            padding: 4rem;
+          }
+
+          .rightColumn {
+            flex: 0;
+          }
+
+          @media (min-width: 800px) {
+            .leftColumn {
+              flex: 1;
+            }
+
+            .centreColumn {
+              flex: 1;
+              background-color: ${theme.colors.white};
+              opacity: 0.8;
+            }
+
+            .rightColumn {
+              flex: 1;
+            }
+
+            .navbar h3 {
+              font-size: 1.5rem;
+            }
+
+            .navbar {
+              padding: 2rem 3rem;
+            }
           }
 
           .navbar {
-            padding: 1rem 2.5rem;
+            padding: 1rem 1rem;
             background-color: ${theme.colors.white};
             font-family: "Merriweather", serif;
             border-bottom: 1px solid ${theme.colors.tumbleweed};
+            display: flex;
+            justify-content: flex-end;
           }
 
           .navbar h3 {
-            color: ${theme.colors.blackLighter};
-            margin: 0;
+            color: ${theme.colors.brownSugar};
+            margin: 0 1rem;
             font-weight: 300;
             text-align: right;
             font-size: 1rem;
@@ -69,29 +118,50 @@ const Book = ({ book }) => {
 
           .contents {
             z-index: 1;
+            padding-left: 0;
+            list-style: none;
+          }
 
+          .poemTitle {
+            cursor: pointer;
+            font-family: "Merriweather", serif;
             white-space: pre-line;
             color: ${theme.colors.actualBlack};
-
-            font-family: "Merriweather", serif;
-
             font-weight: 400;
             font-size: 1.25rem;
             text-align: center;
-            cursor: pointer;
+            line-height: 2;
           }
+
+          .poemTitle:hover {
+            background-color: ${theme.colors.tumbleweed};
+            border-radius: 5% / 50%;
+          }
+
           .title {
             z-index: 1;
             color: ${theme.colors.actualBlack};
-
             font-family: "Merriweather", serif;
-
             font-weight: 700;
             font-size: 2rem;
             text-align: center;
+            margin: 0.5rem;
           }
         `}
       </style>
+      <style jsx global>{`
+        html {
+          margin: 0;
+        }
+
+        body {
+          padding: 0;
+          margin: 0;
+          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+            sans-serif;
+        }
+      `}</style>
     </>
   );
 };
