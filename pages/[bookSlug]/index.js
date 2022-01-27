@@ -45,7 +45,7 @@ const Book = ({ book }) => {
             min-height: 175%;
             width: 100%;
             background-color: ${theme.colors.brownSugar};
-            opacity: 0.3;
+            opacity: 0.4;
             top: 0;
             right: 0;
           }
@@ -53,7 +53,7 @@ const Book = ({ book }) => {
           .layout {
             display: flex;
             flex-direction: row;
-            background-image: url("/images/leaves1.jpeg");
+            background-image: url("/images/leaves1_inverted.jpeg");
             background-size: cover;
             background-position: center;
 
@@ -101,15 +101,15 @@ const Book = ({ book }) => {
 
           .navbar {
             padding: 1rem 1rem;
-            background-color: ${theme.colors.white};
+            background-color: ${theme.colors.tumbleweed};
             font-family: "Merriweather", serif;
-            border-bottom: 1px solid ${theme.colors.tumbleweed};
+            border-bottom: 1px solid ${theme.colors.white};
             display: flex;
             justify-content: flex-end;
           }
 
           .navbar h3 {
-            color: ${theme.colors.brownSugar};
+            color: ${theme.colors.blackLighter};
             margin: 0 1rem;
             font-weight: 300;
             text-align: right;
@@ -124,13 +124,19 @@ const Book = ({ book }) => {
 
           .poemTitle {
             cursor: pointer;
-            font-family: "Merriweather", serif;
-            white-space: pre-line;
-            color: ${theme.colors.actualBlack};
-            font-weight: 400;
-            font-size: 1.25rem;
+            display: flex;
+            justify-content: center;
+            transition: all 0.5s ease-in-out;
+            background-color: ${theme.colors.indigoDye};
+            border-radius: 5% / 50%;
+            padding: 1rem;
+            margin: 0.1rem;
+            border-color: ${theme.colors.white};
+            border-style: solid;
+            border-width: 2px 4px;
+            color: ${theme.colors.white};
             text-align: center;
-            line-height: 2;
+            line-height: 1.5;
           }
 
           .poemTitle:hover {
