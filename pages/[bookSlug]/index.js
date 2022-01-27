@@ -42,7 +42,7 @@ const Book = ({ book }) => {
           .overlay {
             pointer-events: none;
             position: absolute;
-            height: 100%;
+            min-height: 175%;
             width: 100%;
             background-color: ${theme.colors.brownSugar};
             opacity: 0.3;
