@@ -37,6 +37,15 @@ const Book = ({ book }) => {
               ))}
             </ul>
           </div>
+          <div className="rightImage">
+            <Image
+              src="/images/purpleflower.png"
+              alt="cornflower"
+              layout="fixed"
+              width={110}
+              height={413}
+            />
+          </div>
         </main>
       </div>
 
@@ -71,7 +80,13 @@ const Book = ({ book }) => {
           .leftImage {
             position: relative;
             top: 71px;
-            left: -100px; //bright-ideas
+            left: -120px; //bright-ideas
+          }
+
+          .rightImage {
+            position: absolute;
+            top: 440px;
+            right: -4px; //bright-ideas
           }
 
           @media (min-width: 800px) {
@@ -87,6 +102,12 @@ const Book = ({ book }) => {
               position: relative;
               top: 71px;
               left: -165px;
+            }
+
+            .rightImage {
+              position: absolute;
+              top: 440px;
+              right: 440px; //bright-ideas
             }
           }
 
