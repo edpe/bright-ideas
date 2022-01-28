@@ -30,7 +30,7 @@ const Book = ({ book }) => {
           </div>
           <div className="rightColumn" />
         </main>
-        <div className="overlay"></div>
+        {/* <div className="overlay"></div> */}
       </div>
 
       <style jsx>
@@ -46,7 +46,7 @@ const Book = ({ book }) => {
             height: 170%;
 
             background-color: ${theme.colors.brownSugar};
-            opacity: 0.4;
+            opacity: 0.5;
             top: 0;
             right: 0;
           }
@@ -54,9 +54,6 @@ const Book = ({ book }) => {
           .layout {
             display: flex;
             flex-direction: row;
-            background-image: url("/images/leaves1_inverted.jpeg");
-            background-size: cover;
-            background-position: center;
           }
 
           .leftColumn {
@@ -67,7 +64,7 @@ const Book = ({ book }) => {
             flex: 1;
             background-color: ${theme.colors.white};
             opacity: 0.8;
-            padding: 2rem 4rem;
+            padding: 2rem 2rem;
           }
 
           .rightColumn {
@@ -101,7 +98,7 @@ const Book = ({ book }) => {
           .navbar {
             padding: 1rem 1rem;
             background-color: ${theme.colors.white};
-            font-family: "Merriweather", serif;
+            font-family: "Ubuntu", sans-serif;
             border-bottom: 1px solid ${theme.colors.white};
             display: flex;
             justify-content: flex-end;
@@ -117,36 +114,33 @@ const Book = ({ book }) => {
 
           .contents {
             z-index: 1;
-            padding-left: 0;
+            padding: 1rem 2rem;
             list-style: none;
           }
 
           .poemTitle {
+            font-family: "Ubuntu", sans-serif;
             cursor: pointer;
             display: flex;
             justify-content: center;
             transition: all 0.5s ease-in-out;
-            background-color: ${theme.colors.indigoDye};
-            border-radius: 5% / 50%;
+            background-color: ${theme.colors.white};
             padding: 1rem;
             margin: 0.1rem;
-            border-color: ${theme.colors.white};
-            border-style: solid;
-            border-width: 2px 4px;
-            color: ${theme.colors.white};
+            color: ${theme.colors.blackLighter};
             text-align: center;
             line-height: 1.5;
           }
 
           .poemTitle:hover {
             background-color: ${theme.colors.tumbleweed};
-            border-radius: 5% / 50%;
+            transform: scale(1.1);
           }
 
           .title {
             z-index: 1;
             color: ${theme.colors.actualBlack};
-            font-family: "Merriweather", serif;
+            font-family: "Ubuntu", sans-serif;
             font-weight: 700;
             font-size: 2rem;
             text-align: center;

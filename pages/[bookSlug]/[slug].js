@@ -5,34 +5,43 @@ const Poem = ({ poem }) => {
     <>
       <div className="paper">
         <div className="layout">
-          <h1 className="poemTitle">{poem.title}</h1>
-          <p className="poemText">{poem.text}</p>
+          <div className="poem">
+            <h1 className="poemTitle">{poem.title}</h1>
+            <p className="poemText">{poem.text}</p>
+          </div>
         </div>
       </div>
 
       <style jsx>
         {`
           .paper {
-            background-color: #f7efe6;
             min-height: 100vh;
           }
 
           .layout {
             max-width: 500px;
+            z-index: 1;
+          }
+
+          .poem {
+            padding: 3rem 1rem;
+            background-color: transparent;
           }
 
           .poemText {
             white-space: pre-line;
             color: #474645;
-            font-family: "Josefin Sans", sans-serif;
-            font-weight: 400;
-            font-size: 1.25rem;
+            font-weight: 300;
+            font-size: 1rem;
+            font-family: "Ubuntu", sans-serif;
+            line-height: 2;
+            background-color: transparent;
           }
           .poemTitle {
             color: #474645;
-            font-family: "Josefin Sans", sans-serif;
-            font-weight: 700;
-            font-size: 2rem;
+            font-family: "Ubuntu", sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
           }
         `}
       </style>

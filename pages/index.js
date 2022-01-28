@@ -3,6 +3,7 @@ import Head from "next/head";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import Link from "next/link";
 import theme from "../theme";
+import Image from "next/image";
 
 import { useState, useCallback, useEffect } from "react";
 
@@ -47,8 +48,9 @@ export default function Home({ books }) {
           <h3>about</h3>
         </nav>
         <main className="layout">
+          <h1 className="pageHeading">Poems by Patricia June Perkins</h1>
           <div className="bookShelf">
-            <h2>Books in this collection:</h2>
+            <h2 className="subHeading">Books in this collection:</h2>
             {books.map((book) => (
               <Link href="[slug]" as={book.slug} passHref key={book.id}>
                 <div className="book">
@@ -58,17 +60,14 @@ export default function Home({ books }) {
             ))}
           </div>
           <div>
-            <div className="imageWrapper">
-              <img
-                className="lavendar"
-                src={
-                  useMediaQuery(800)
-                    ? "/images/lavendar_invert_cropped_mobile.jpeg"
-                    : "/images/lavendar_invert_cropped.jpeg"
-                }
-                alt="lavendar"
-              />
-            </div>
+            <Image
+              className="lavendar"
+              src={"/images/flowers1.jpeg"}
+              alt="lavendar"
+              layout="responsive"
+              width={4655}
+              height={3734}
+            />
           </div>
         </main>
 
@@ -87,8 +86,8 @@ export default function Home({ books }) {
           position: absolute;
           height: 100vh;
           width: 100%;
-          background-color: ${theme.colors.lavenderBlue};
-          opacity: 0.5;
+          background-color: ${theme.colors.lavendarWeb};
+          opacity: 0.1;
           top: 0;
           right: 0;
         }
@@ -96,23 +95,24 @@ export default function Home({ books }) {
         .layout {
           display: flex;
           flex-direction: column;
-          background-color: ${theme.colors.actualBlack};
+          background-color: ${theme.colors.white};
           height: 100vh;
         }
 
         .lavendar {
           max-width: 100%;
+          position: fixed;
         }
 
         .navbar {
-          padding: 1rem 2.5rem;
-          background-color: ${theme.colors.actualBlack};
-          font-family: "Merriweather", serif;
-          border-bottom: 1px solid ${theme.colors.lavenderBlue};
+          padding: 1rem 2rem;
+          background-color: ${theme.colors.white};
+          font-family: "Ubuntu", sans-serif;
+          border-bottom: 1px solid ${theme.colors.blackLighter};
         }
 
         .navbar h3 {
-          color: ${theme.colors.white};
+          color: ${theme.colors.blackLighter};
           margin: 0;
           font-weight: 300;
           text-align: right;
@@ -128,17 +128,28 @@ export default function Home({ books }) {
           display: flex;
           flex-direction: column;
           align-items: center;
-          padding: 2rem;
-          color: ${theme.colors.blackDarker};
+          padding: 0.5rem 2rem;
+          color: ${theme.colors.blackLighter};
+        }
+
+        .pageHeading {
+          font-size: 1rem;
+          font-weight: 400;
+          text-align: center;
+          padding: 1rem 0 0 0;
+        }
+
+        .subHeading {
+          margin: 0;
+          font-size: 1rem;
         }
 
         .bookShelf h2 {
-          color: ${theme.colors.white};
+          color: ${theme.colors.blackLighter};
           font-weight: 400;
-          margin: 2rem 0;
-          font-family: "Merriweather", serif;
+          margin: 1rem 0;
+          font-family: "Ubuntu", sans-serif;
           font-weight: 300;
-          font-size: 1.5rem;
           text-align: center;
         }
 
@@ -147,20 +158,27 @@ export default function Home({ books }) {
           display: flex;
           justify-content: center;
           transition: all 0.5s ease-in-out;
-          background-color: ${theme.colors.indigoDye};
+          background-color: ${theme.colors.white};
           border-radius: 5% / 50%;
           padding: 1rem;
           margin: 0.1rem;
-          min-width: 260px;
-          border-color: ${theme.colors.white};
+          min-width: 200px;
+          border-color: ${theme.colors.blackLighter};
           border-style: solid;
           border-width: 2px 4px;
-          color: ${theme.colors.white};
+          color: ${theme.colors.blackLighter};
         }
 
         .book:hover {
-          background-color: ${theme.colors.lavenderBlue};
-          color: ${theme.colors.actualBlack};
+          background-color: ${theme.colors.glaucous};
+          color: ${theme.colors.white};
+          transform: scale(1.1);
+        }
+
+        .book:hover {
+          background-color: ${theme.colors.glaucous};
+          color: ${theme.colors.white};
+          transform: scale(1.1);
         }
 
         .bookTitle {
@@ -168,7 +186,6 @@ export default function Home({ books }) {
           font-weight: 300;
           margin: 0;
           align-self: center;
-          font-family: "Merriweather", serif;
           font-weight: 400;
           font-size: 1rem;
         }
@@ -179,21 +196,38 @@ export default function Home({ books }) {
           }
 
           .navbar {
-            padding: 2rem 3rem;
+            padding: 1rem;
           }
 
           .bookShelf h2 {
-            font-size: 2rem;
-          }
-
-          .bookTitle {
             font-size: 1.5rem;
           }
 
+          .pageHeading {
+            font-size: 2rem;
+            font-weight: 300;
+            text-align: center;
+          }
+
+          .subHeading {
+            margin: 0;
+          }
+
+          .bookTitle {
+            font-size: 1.25rem;
+          }
+
           .book {
-            width: 500px;
+            min-width: 300px;
+            max-width: 400px;
             border-radius: 5% / 50%;
-            height: 60px;
+            height: 30px;
+          }
+
+          .book:hover {
+            background-color: ${theme.colors.glaucous};
+            color: ${theme.colors.white};
+            transform: scale(1.1);
           }
         }
       `}</style>
