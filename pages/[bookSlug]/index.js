@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import Link from "next/link";
 import theme from "../../theme";
+import Image from "next/image";
 
 const Book = ({ book }) => {
   const currentPage = book.slug;
@@ -15,10 +16,18 @@ const Book = ({ book }) => {
         </nav>
 
         <main className="layout">
-          <div className="leftColumn" />
-          <div className="centreColumn">
+          <div className="leftImage">
+            <Image
+              src="/images/cornflower.png"
+              alt="cornflower"
+              layout="fixed"
+              width={110}
+              height={413}
+            />
+          </div>
+          <div className="contents">
             <h1 className="title">{book.title}</h1>
-            <ul className="contents">
+            <ul className="poemList">
               {book.poems.map((poem) => (
                 <li key={poem.id}>
                   <Link href={`/${currentPage}/${poem.slug}`} passHref>
@@ -28,9 +37,7 @@ const Book = ({ book }) => {
               ))}
             </ul>
           </div>
-          <div className="rightColumn" />
         </main>
-        {/* <div className="overlay"></div> */}
       </div>
 
       <style jsx>
@@ -45,7 +52,7 @@ const Book = ({ book }) => {
             width: 100%;
             height: 170%;
 
-            background-color: ${theme.colors.brownSugar};
+            background-color: ${theme.colors.lavenderBlue};
             opacity: 0.5;
             top: 0;
             right: 0;
@@ -54,44 +61,32 @@ const Book = ({ book }) => {
           .layout {
             display: flex;
             flex-direction: row;
+            width: 100%;
+            justify-content: center;
+          }
+          .contents {
+            position: absolute;
           }
 
-          .leftColumn {
-            flex: 0;
-          }
-
-          .centreColumn {
-            flex: 1;
-            background-color: ${theme.colors.white};
-            opacity: 0.8;
-            padding: 2rem 2rem;
-          }
-
-          .rightColumn {
-            flex: 0;
+          .leftImage {
+            position: relative;
+            top: 71px;
+            left: -100px; //bright-ideas
           }
 
           @media (min-width: 800px) {
-            .leftColumn {
-              flex: 1;
-            }
-
-            .centreColumn {
-              flex: 1;
-              background-color: ${theme.colors.white};
-              opacity: 0.8;
-            }
-
-            .rightColumn {
-              flex: 1;
-            }
-
             .navbar h3 {
               font-size: 1.5rem;
             }
 
             .navbar {
               padding: 2rem 3rem;
+            }
+
+            .leftImage {
+              position: relative;
+              top: 71px;
+              left: -165px;
             }
           }
 
@@ -112,7 +107,7 @@ const Book = ({ book }) => {
             font-size: 1rem;
           }
 
-          .contents {
+          .poemList {
             z-index: 1;
             padding: 1rem 2rem;
             list-style: none;
@@ -124,7 +119,7 @@ const Book = ({ book }) => {
             display: flex;
             justify-content: center;
             transition: all 0.5s ease-in-out;
-            background-color: ${theme.colors.white};
+            background-color: transparent;
             padding: 1rem;
             margin: 0.1rem;
             color: ${theme.colors.blackLighter};
@@ -133,8 +128,11 @@ const Book = ({ book }) => {
           }
 
           .poemTitle:hover {
-            background-color: ${theme.colors.tumbleweed};
+            background-color: ${theme.colors.lavenderBlue};
+            color: ${theme.colors.actualBlack};
+            opacity: 0.5;
             transform: scale(1.1);
+            border-radius: 5% / 50%;
           }
 
           .title {
