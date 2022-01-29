@@ -3,7 +3,11 @@ import Link from "next/link";
 import theme from "../../theme";
 import Image from "next/image";
 
+import useMediaQuery from "../src/hooks/useMediaQuery";
+
 const Book = ({ book }) => {
+  const isMobile = useMediaQuery(768);
+
   const currentPage = book.slug;
   return (
     <>
@@ -21,12 +25,13 @@ const Book = ({ book }) => {
               src="/images/cornflower.png"
               alt="cornflower"
               layout="fixed"
-              width={110}
-              height={413}
+              width={881 * (isMobile ? 0.1 : 0.3)}
+              height={3306 * (isMobile ? 0.1 : 0.3)}
             />
           </div>
           <div className="contents">
             <h1 className="title">{book.title}</h1>
+            <h2 className="listTitle">Contents:</h2>
             <ul className="poemList">
               {book.poems.map((poem) => (
                 <li key={poem.id}>
@@ -40,10 +45,10 @@ const Book = ({ book }) => {
           <div className="rightImage">
             <Image
               src="/images/purpleflower.png"
-              alt="cornflower"
+              alt="flower"
               layout="fixed"
-              width={110}
-              height={413}
+              width={800 * (isMobile ? 0.1 : 0.3)}
+              height={4100 * (isMobile ? 0.1 : 0.3)}
             />
           </div>
         </main>
@@ -79,7 +84,7 @@ const Book = ({ book }) => {
 
           .leftImage {
             position: relative;
-            top: 71px;
+            top: 40px;
             left: -120px; //bright-ideas
           }
 
@@ -88,7 +93,13 @@ const Book = ({ book }) => {
             top: 440px;
             right: -4px; //bright-ideas
           }
-
+          .listTitle {
+            text-align: center;
+            font-weight: 400;
+            font-size: 1rem;
+            font-style: italic;
+            margin-top: 2rem;
+          }
           @media (min-width: 800px) {
             .navbar h3 {
               font-size: 1.5rem;
@@ -130,7 +141,7 @@ const Book = ({ book }) => {
 
           .poemList {
             z-index: 1;
-            padding: 1rem 2rem;
+            padding: 0 2rem;
             list-style: none;
           }
 
