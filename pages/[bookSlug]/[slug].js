@@ -37,7 +37,7 @@ const Poem = ({ poem, book }) => {
                   <div>
                     <p>Previous</p>
                     <Link
-                      href={`/${router.query.bookSlug}/${previousPoem.slug}`}
+                      href={`${router.query.bookSlug}/${previousPoem.slug}`}
                     >
                       {previousPoem.title}
                     </Link>
@@ -168,7 +168,7 @@ export async function getStaticProps({ params }) {
 
   const { data } = await client.query({
     query: gql`
-      query getPoem($slug: String!, $bookSlug: String!) {
+      query getPoemAndBook($slug: String!, $bookSlug: String!) {
         poems(where: { slug: $slug }) {
           id
           title

@@ -8,6 +8,10 @@ import useMediaQuery from "../src/hooks/useMediaQuery";
 const Book = ({ book }) => {
   const isMobile = useMediaQuery(768);
 
+  let orderedPoems = [...book.poems].sort((a, b) =>
+    parseInt(a.poemId) > parseInt(b.poemId) ? 1 : -1
+  );
+
   const currentPage = book.slug;
   return (
     <>
@@ -33,8 +37,8 @@ const Book = ({ book }) => {
             <h1 className="title">{book.title}</h1>
             <h2 className="listTitle">Contents:</h2>
             <ul className="poemList">
-              {book.poems.map((poem) => (
-                <li key={poem.id}>
+              {orderedPoems.map((poem) => (
+                <li key={poem.poemId}>
                   <Link href={`/${currentPage}/${poem.slug}`} passHref>
                     <p className="poemTitle">{poem.title}</p>
                   </Link>
@@ -248,7 +252,7 @@ export async function getStaticProps({ params }) {
           slug
           title
           poems {
-            id
+            poemId
             title
             slug
           }
