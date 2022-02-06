@@ -43,11 +43,17 @@ const Poem = ({ poem, book }) => {
                     </Link>
                   </div>
                 )}
-                {nextPoem && (
+                {nextPoem ? (
                   <div>
                     <p>Next</p>
                     <Link href={`/${router.query.bookSlug}/${nextPoem.slug}`}>
                       {nextPoem.title}
+                    </Link>
+                  </div>
+                ) : (
+                  <div>
+                    <Link href={`/${router.query.bookSlug}`}>
+                      Back to contents
                     </Link>
                   </div>
                 )}
