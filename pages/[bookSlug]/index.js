@@ -25,8 +25,8 @@ const Book = ({ book }) => {
               src="/images/cornflower.png"
               alt="cornflower"
               layout="fixed"
-              width={881 * (isMobile ? 0.1 : 0.3)}
-              height={3306 * (isMobile ? 0.1 : 0.3)}
+              width={881 * (isMobile ? 0.1 : 0.25)}
+              height={3306 * (isMobile ? 0.1 : 0.25)}
             />
           </div>
           <div className="contents">
@@ -47,8 +47,8 @@ const Book = ({ book }) => {
               src="/images/purpleflower.png"
               alt="flower"
               layout="fixed"
-              width={800 * (isMobile ? 0.1 : 0.3)}
-              height={4100 * (isMobile ? 0.1 : 0.3)}
+              width={800 * (isMobile ? 0.1 : 0.2)}
+              height={4100 * (isMobile ? 0.1 : 0.2)}
             />
           </div>
         </main>
@@ -66,7 +66,6 @@ const Book = ({ book }) => {
             width: 100%;
             height: 170%;
 
-            background-color: ${theme.colors.lavenderBlue};
             opacity: 0.5;
             top: 0;
             right: 0;
@@ -75,7 +74,8 @@ const Book = ({ book }) => {
           .layout {
             display: flex;
             flex-direction: row;
-            width: 100%;
+            max-width: 1024px;
+            margin: auto;
             justify-content: center;
           }
           .contents {
@@ -95,9 +95,8 @@ const Book = ({ book }) => {
           }
           .listTitle {
             text-align: center;
-            font-weight: 400;
+            font-weight: 300;
             font-size: 1rem;
-            font-style: italic;
             margin-top: 2rem;
           }
           @media (min-width: 800px) {
@@ -117,8 +116,26 @@ const Book = ({ book }) => {
 
             .rightImage {
               position: absolute;
-              top: 440px;
-              right: 440px; //bright-ideas
+              top: 100px;
+              right: 200px;
+            }
+
+            .leftImage {
+              position: absolute;
+              top: 30;
+              left: 200px;
+            }
+
+            .listTitle {
+              font-size: 1.5rem;
+            }
+
+            .poemTitle {
+              font-size: 1.25rem;
+            }
+
+            .title {
+              font-size: 2rem;
             }
           }
 
@@ -172,7 +189,7 @@ const Book = ({ book }) => {
             color: ${theme.colors.actualBlack};
             font-family: "Ubuntu", sans-serif;
             font-weight: 700;
-            font-size: 2rem;
+            font-size: 1.5rem;
             text-align: center;
             margin: 0.5rem;
           }

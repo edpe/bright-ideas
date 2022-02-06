@@ -1,14 +1,59 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import theme from "../../theme";
 
-const Poem = ({ poem }) => {
+const Poem = ({ poem, book }) => {
+  const router = useRouter();
+
+  const currentPoem = book.poems.find(
+    (poem) => poem.slug === router.query.slug
+  );
+
+  const nextPoem = book.poems.find(
+    (poem) => parseInt(poem.poemId) === parseInt(currentPoem?.poemId) + 1
+  );
+
+  const previousPoem = book.poems.find(
+    (poem) => parseInt(poem?.poemId) === parseInt(currentPoem?.poemId) - 1
+  );
+
   return (
     <>
       <div className="paper">
         <div className="layout">
-          <div className="poem">
-            <h1 className="poemTitle">{poem.title}</h1>
-            <p className="poemText">{poem.text}</p>
-          </div>
+          <nav className="navbar">
+            <h3>about</h3>
+            <Link href="/" passHref>
+              <h3>home</h3>
+            </Link>
+          </nav>
+          <main>
+            <div className="poem">
+              <h1 className="poemTitle">{poem.title}</h1>
+              <p className="poemText">{poem.text}</p>
+              <div className="poemNav" role="navigation">
+                {previousPoem && (
+                  <div>
+                    <p>Previous</p>
+                    <Link
+                      href={`/${router.query.bookSlug}/${previousPoem.slug}`}
+                    >
+                      {previousPoem.title}
+                    </Link>
+                  </div>
+                )}
+                {nextPoem && (
+                  <div>
+                    <p>Next</p>
+                    <Link href={`/${router.query.bookSlug}/${nextPoem.slug}`}>
+                      {nextPoem.title}
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </div>
+          </main>
         </div>
       </div>
 
@@ -42,6 +87,39 @@ const Poem = ({ poem }) => {
             font-family: "Ubuntu", sans-serif;
             font-weight: 500;
             font-size: 1rem;
+          }
+
+          .poemNav {
+            font-family: "Ubuntu", sans-serif;
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .navbar {
+            padding: 1rem 1rem;
+            background-color: ${theme.colors.white};
+            font-family: "Ubuntu", sans-serif;
+            border-bottom: 1px solid ${theme.colors.white};
+            display: flex;
+            justify-content: flex-end;
+          }
+
+          .navbar h3 {
+            color: ${theme.colors.blackLighter};
+            margin: 0 1rem;
+            font-weight: 300;
+            text-align: right;
+            font-size: 1rem;
+          }
+
+          @media (min-width: 800px) {
+            .navbar h3 {
+              font-size: 1.5rem;
+            }
+
+            .navbar {
+              padding: 2rem 3rem;
+            }
           }
         `}
       </style>
@@ -90,7 +168,7 @@ export async function getStaticProps({ params }) {
 
   const { data } = await client.query({
     query: gql`
-      query getPoem($slug: String!) {
+      query getPoem($slug: String!, $bookSlug: String!) {
         poems(where: { slug: $slug }) {
           id
           title
@@ -98,14 +176,22 @@ export async function getStaticProps({ params }) {
           author
           slug
         }
+        books(where: { slug: $bookSlug }) {
+          poems {
+            poemId
+            slug
+            title
+          }
+        }
       }
     `,
-    variables: { slug: params.slug },
+    variables: { slug: params.slug, bookSlug: params.bookSlug },
   });
 
   return {
     props: {
       poem: data.poems[0],
+      book: data.books[0],
     },
   };
 }
