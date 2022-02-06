@@ -15,7 +15,7 @@ const Poem = ({ poem, book }) => {
   );
 
   const previousPoem = book.poems.find(
-    (poem) => parseInt(poem?.poemId) === parseInt(currentPoem?.poemId) - 1
+    (poem) => parseInt(poem.poemId) === parseInt(currentPoem?.poemId) - 1
   );
 
   return (
@@ -37,7 +37,7 @@ const Poem = ({ poem, book }) => {
                   <div>
                     <p>Previous</p>
                     <Link
-                      href={`${router.query.bookSlug}/${previousPoem.slug}`}
+                      href={`/${router.query.bookSlug}/${previousPoem.slug}`}
                     >
                       {previousPoem.title}
                     </Link>
