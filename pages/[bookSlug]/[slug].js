@@ -1,9 +1,12 @@
+import React from "react";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import theme from "../../theme";
+import Poem from "../../src/components/Poem";
+import Header from "../../src/components/Header";
+import Footer from "../../src/components/Footer";
+import Layout from "../../src/components/Layout";
 
-const Poem = ({ poem, book }) => {
+const PoemPage = ({ poem, book }) => {
   const router = useRouter();
 
   const currentPoem = book.poems.find(
@@ -20,115 +23,18 @@ const Poem = ({ poem, book }) => {
 
   return (
     <>
-      <div className="paper">
-        <div className="layout">
-          <nav className="navbar">
-            <h3>about</h3>
-            <Link href="/" passHref>
-              <h3>home</h3>
-            </Link>
-          </nav>
-          <main>
-            <div className="poem">
-              <h1 className="poemTitle">{poem.title}</h1>
-              <p className="poemText">{poem.text}</p>
-              <div className="poemNav" role="navigation">
-                {previousPoem && (
-                  <div>
-                    <p>Previous</p>
-                    <Link
-                      href={`/${router.query.bookSlug}/${previousPoem.slug}`}
-                    >
-                      {previousPoem.title}
-                    </Link>
-                  </div>
-                )}
-                {nextPoem ? (
-                  <div>
-                    <p>Next</p>
-                    <Link href={`/${router.query.bookSlug}/${nextPoem.slug}`}>
-                      {nextPoem.title}
-                    </Link>
-                  </div>
-                ) : (
-                  <div>
-                    <Link href={`/${router.query.bookSlug}`}>
-                      Back to contents
-                    </Link>
-                  </div>
-                )}
-              </div>
-            </div>
-          </main>
-        </div>
-      </div>
+      <Layout>
+        <Header />
+        <main>
+          <Poem title={poem.title} body={poem.text} />
+        </main>
 
-      <style jsx>
-        {`
-          .paper {
-            min-height: 100vh;
-          }
-
-          .layout {
-            max-width: 500px;
-            z-index: 1;
-          }
-
-          .poem {
-            padding: 3rem 1rem;
-            background-color: transparent;
-          }
-
-          .poemText {
-            white-space: pre-line;
-            color: #474645;
-            font-weight: 400;
-            font-size: 1rem;
-            font-family: "Ubuntu", sans-serif;
-            line-height: 2;
-            background-color: transparent;
-          }
-          .poemTitle {
-            color: #474645;
-            font-family: "Ubuntu", sans-serif;
-            font-weight: 500;
-            font-size: 1rem;
-          }
-
-          .poemNav {
-            font-family: "Ubuntu", sans-serif;
-            display: flex;
-            justify-content: space-between;
-          }
-
-          .navbar {
-            padding: 1rem 1rem;
-            background-color: ${theme.colors.white};
-            font-family: "Ubuntu", sans-serif;
-            border-bottom: 1px solid ${theme.colors.white};
-            display: flex;
-            justify-content: flex-end;
-          }
-
-          .navbar h3 {
-            color: ${theme.colors.blackLighter};
-            margin: 0 1rem;
-            font-weight: 300;
-            text-align: right;
-            font-size: 1rem;
-          }
-
-          @media (min-width: 800px) {
-            .navbar h3 {
-              font-size: 1.5rem;
-            }
-
-            .navbar {
-              padding: 2rem 3rem;
-            }
-          }
-        `}
-      </style>
+        <Footer
+          bookSlug={router.query.bookSlug}
+          nextPoem={nextPoem}
+          previousPoem={previousPoem}
+        />
+      </Layout>
     </>
   );
 };
@@ -183,6 +89,7 @@ export async function getStaticProps({ params }) {
           slug
         }
         books(where: { slug: $bookSlug }) {
+          title
           poems {
             poemId
             slug
@@ -202,4 +109,4 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default Poem;
+export default PoemPage;

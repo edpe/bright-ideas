@@ -3,7 +3,10 @@ import Link from "next/link";
 import theme from "../../theme";
 import Image from "next/image";
 
-import useMediaQuery from "../src/hooks/useMediaQuery";
+import useMediaQuery from "../../src/hooks/useMediaQuery";
+
+import Header from "../../src/components/Header";
+import Layout from "../../src/components/Layout";
 
 const Book = ({ book }) => {
   const isMobile = useMediaQuery(768);
@@ -15,13 +18,8 @@ const Book = ({ book }) => {
   const currentPage = book.slug;
   return (
     <>
-      <div className="page">
-        <nav className="navbar">
-          <h3>about</h3>
-          <Link href="/" passHref>
-            <h3>home</h3>
-          </Link>
-        </nav>
+      <Layout>
+        <Header />
 
         <main className="layout">
           <div className="leftImage">
@@ -56,8 +54,8 @@ const Book = ({ book }) => {
             />
           </div>
         </main>
-      </div>
-
+      </Layout>
+      >
       <style jsx>
         {`
           .page {

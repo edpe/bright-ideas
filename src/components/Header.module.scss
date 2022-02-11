@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #af989f;
+}
+
+.navLink {
+  text-decoration: none;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+  color: #474645;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.navWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  text-decoration: none;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2rem;
+  color: #474645;
+  font-weight: 300;
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.25rem;
+  }
+}

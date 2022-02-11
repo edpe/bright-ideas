@@ -1,0 +1,37 @@
+.footer {
+  display: flex;
+  position: sticky;
+  width: 100%;
+  justify-content: space-between;
+  margin: 2rem 0;
+  border-top: 2px solid #af989f;
+}
+
+.previous {
+  display: flex;
+  font-family: "Ubuntu", sans-serif;
+  flex-direction: column;
+
+  a {
+    color: #474645;
+  }
+}
+
+.next {
+  display: flex;
+  font-family: "Ubuntu", sans-serif;
+  flex-direction: column;
+
+  a {
+    color: #474645;
+  }
+}
+
+.contentsLink {
+  font-family: "Ubuntu", sans-serif;
+  cursor: pointer;
+
+  a {
+    color: #474645;
+  }
+}
