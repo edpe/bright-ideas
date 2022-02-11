@@ -55,7 +55,7 @@ const Book = ({ book }) => {
           </div>
         </main>
       </Layout>
-      >
+
       <style jsx>
         {`
           .page {
