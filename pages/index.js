@@ -1,12 +1,12 @@
 import Head from "next/head";
 
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
-import Link from "next/link";
-import theme from "../theme";
-import Image from "next/image";
-
+import styles from "../styles/global.module.scss";
 import Header from "../src/components/Header";
 import Layout from "../src/components/Layout";
+import Bookshelf from "../src/components/Bookshelf";
+import Hero from "../src/components/Hero";
+
 export default function Home({ books }) {
   return (
     <>
@@ -20,188 +20,36 @@ export default function Home({ books }) {
       <Layout>
         <Header />
 
-        <main className="layout">
-          <h1 className="pageHeading">Poems by Patricia June Perkins</h1>
-          <div className="bookShelf">
-            <h2 className="subHeading">Books in this collection:</h2>
-            {books.map((book) => (
-              <Link href="[slug]" as={book.slug} passHref key={book.id}>
-                <div className="book">
-                  <h3 className="bookTitle">{book.title}</h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div>
-            <Image
-              className="lavendar"
-              src={"/images/flowers1.jpeg"}
-              alt="lavendar"
-              layout="responsive"
-              width={4655}
-              height={3734}
-            />
+        <main>
+          <Hero image={`/images/heroImage.png`} width={1024} height={600}>
+            Bright Ideas
+          </Hero>
+
+          <div className={styles.text}>
+            <p>
+              Bright Ideas is an archive for the poems of Pat Perkins. It
+              features previous poetry collections Bright Ideas (2001), More
+              Bright Ideas (2004) and a new, previously unpublished collection,
+              Bright Ideas in Action written in 2013.
+            </p>
+            <p>
+              This site has been designed and written by her son, Ed Perkins
+              with help from her daughter Sara Perkins who did a lot of the
+              typing.
+            </p>
+            <p>
+              {
+                "We hope that whoever reads these poems enjoys them and finds the ideas in them helpful, as that's what Pat would have wished for them."
+              }
+            </p>
+
+            <div className="bookShelfPosition">
+              <Bookshelf books={books} link="[slug]" />
+            </div>
           </div>
         </main>
       </Layout>
 
-      <style jsx>{`
-        .page {
-          display: flex;
-          max-height: 100vh;
-          flex-direction: column;
-          overflow: hidden;
-        }
-        .overlay {
-          pointer-events: none;
-          position: absolute;
-          height: 100vh;
-          width: 100%;
-          background-color: ${theme.colors.lavendarWeb};
-          opacity: 0.1;
-          top: 0;
-          right: 0;
-        }
-
-        .layout {
-          display: flex;
-          flex-direction: column;
-          background-color: ${theme.colors.white};
-          height: 100vh;
-        }
-
-        .lavendar {
-          max-width: 100%;
-          position: fixed;
-        }
-
-        .navbar {
-          padding: 1rem 2rem;
-          background-color: ${theme.colors.white};
-          font-family: "Ubuntu", sans-serif;
-          border-bottom: 1px solid ${theme.colors.blackLighter};
-        }
-
-        .navbar h3 {
-          color: ${theme.colors.blackLighter};
-          margin: 0;
-          font-weight: 300;
-          text-align: right;
-          font-size: 1rem;
-        }
-
-        .flowers {
-          align-self: flex-end;
-        }
-
-        .bookShelf {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 0.5rem 2rem;
-          color: ${theme.colors.blackLighter};
-        }
-
-        .pageHeading {
-          font-size: 1rem;
-          font-weight: 400;
-          text-align: center;
-          padding: 1rem 0 0 0;
-        }
-
-        .subHeading {
-          margin: 0;
-          font-size: 1rem;
-        }
-
-        .bookShelf h2 {
-          color: ${theme.colors.blackLighter};
-          font-weight: 400;
-          margin: 1rem 0;
-          font-family: "Ubuntu", sans-serif;
-          font-weight: 300;
-          text-align: center;
-        }
-
-        .book {
-          cursor: pointer;
-          display: flex;
-          justify-content: center;
-          transition: all 0.5s ease-in-out;
-          background-color: ${theme.colors.white};
-          border-radius: 5% / 50%;
-          padding: 1rem;
-          margin: 0.1rem;
-          min-width: 200px;
-          border-color: ${theme.colors.blackLighter};
-          border-style: solid;
-          border-width: 2px 4px;
-          color: ${theme.colors.blackLighter};
-        }
-
-        .book:hover {
-          background-color: ${theme.colors.glaucous};
-          color: ${theme.colors.white};
-          transform: scale(1.1);
-        }
-
-        .book:hover {
-          background-color: ${theme.colors.glaucous};
-          color: ${theme.colors.white};
-          transform: scale(1.1);
-        }
-
-        .bookTitle {
-          font-size: 1.5rem;
-          font-weight: 300;
-          margin: 0;
-          align-self: center;
-          font-weight: 400;
-          font-size: 1rem;
-        }
-
-        @media (min-width: 800px) {
-          .navbar h3 {
-            font-size: 1.5rem;
-          }
-
-          .navbar {
-            padding: 1rem;
-          }
-
-          .bookShelf h2 {
-            font-size: 1.5rem;
-          }
-
-          .pageHeading {
-            font-size: 2rem;
-            font-weight: 300;
-            text-align: center;
-          }
-
-          .subHeading {
-            margin: 0;
-          }
-
-          .bookTitle {
-            font-size: 1.25rem;
-          }
-
-          .book {
-            min-width: 300px;
-            max-width: 400px;
-            border-radius: 5% / 50%;
-            height: 30px;
-          }
-
-          .book:hover {
-            background-color: ${theme.colors.glaucous};
-            color: ${theme.colors.white};
-            transform: scale(1.1);
-          }
-        }
-      `}</style>
       <style jsx global>{`
         html {
           margin: 0;
