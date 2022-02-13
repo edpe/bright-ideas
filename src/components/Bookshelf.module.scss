@@ -1,73 +1,49 @@
 .bookShelf {
-  margin: 100px auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  color: #382e31;
-  transform: rotate(90deg);
-}
+  justify-content: center;
 
-.bookShelf h2 {
-  color: #382e31;
-  font-weight: 400;
-  margin: 1rem 0;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 300;
-  text-align: center;
+  @media screen and (max-width: 960px) {
+    flex-direction: column;
+  }
 }
 
 .book {
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  transition: all 0.5s ease-in-out;
-  background-color: #f8c025;
-  border-radius: 5% / 50%;
-  padding: 1rem;
-  margin: 0.1rem;
-  min-width: 200px;
-  border-color: #382e31;
-  border-style: solid;
-  border-width: 2px 4px;
-  color: #382e31;
+  flex-basis: 33.33333%;
+  margin: 1rem;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+  box-shadow: 0 0 0 1px #f8c025;
+
+  @media screen and (max-width: 960px) {
+    flex-basis: 100%;
+    margin: 1rem 0;
+  }
 }
 
-.book:hover {
-  background-color: #688db6;
-  color: #fafafa;
-  transform: scale(1.1);
-}
-
-.book:hover {
-  background-color: #688db6;
-  color: #fafafa;
-  transform: scale(1.1);
+.bookImage {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  min-width: 250px;
+  @media screen and (max-width: 960px) {
+    height: 100%;
+    min-width: 90vw;
+  }
 }
 
 .bookTitle {
-  font-size: 1.5rem;
-  font-weight: 300;
+  background-color: beige;
   margin: 0;
-  align-self: center;
+  min-height: 2rem;
+  padding: 1rem;
   font-weight: 400;
-  font-size: 1rem;
-}
-
-@media (min-width: 800px) {
-  .bookTitle {
-    font-size: 1.25rem;
-  }
-
-  .book {
-    min-width: 300px;
-    max-width: 400px;
-    border-radius: 5% / 50%;
-    height: 30px;
-  }
-
-  .book:hover {
-    background-color: #688db6;
-    color: #fafafa;
-    transform: scale(1.1);
-  }
 }
