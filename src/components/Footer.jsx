@@ -12,26 +12,32 @@ const ContentsLink = ({ link }) => {
   );
 };
 
-const Footer = ({ bookSlug, nextPoem, previousPoem }) => {
+const Footer = ({ bookSlug, nextPoem, previousPoem, pageType }) => {
   return (
     <div className={styles.footer} role="navigation">
-      {previousPoem ? (
-        <div className={styles.previous}>
-          <p>Previous</p>
-          <Link href={`/${bookSlug}/${previousPoem.slug}`}>
-            {previousPoem.title}
-          </Link>
+      {pageType === "poem" && (
+        <div className={styles.poemNav}>
+          {previousPoem ? (
+            <div className={styles.previous}>
+              <p>Previous</p>
+              <Link href={`/${bookSlug}/${previousPoem.slug}`}>
+                {previousPoem.title}
+              </Link>
+            </div>
+          ) : (
+            <ContentsLink link={bookSlug} />
+          )}
+          {nextPoem ? (
+            <div className={styles.next}>
+              <p>Next</p>
+              <Link href={`/${bookSlug}/${nextPoem.slug}`}>
+                {nextPoem.title}
+              </Link>
+            </div>
+          ) : (
+            <ContentsLink link={bookSlug} />
+          )}
         </div>
-      ) : (
-        <ContentsLink link={bookSlug} />
-      )}
-      {nextPoem ? (
-        <div className={styles.next}>
-          <p>Next</p>
-          <Link href={`/${bookSlug}/${nextPoem.slug}`}>{nextPoem.title}</Link>
-        </div>
-      ) : (
-        <ContentsLink link={bookSlug} />
       )}
     </div>
   );

@@ -1,4 +1,24 @@
 .text {
   color: #2e4660;
   line-height: 1.5rem;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+}
+
+.heading {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 2rem;
+  font-family: "Ubuntu", sans-serif;
+  color: #474645;
+  font-weight: 300;
+}
+
+.fullPageHeightCentre {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.halfPage {
+  max-width: 600px;
 }

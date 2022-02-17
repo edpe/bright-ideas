@@ -3,6 +3,7 @@ import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { useRouter } from "next/router";
 import Poem from "../../src/components/Poem";
 import Header from "../../src/components/Header";
+import Content from "../../src/components/Content";
 import Footer from "../../src/components/Footer";
 import Layout from "../../src/components/Layout";
 
@@ -25,14 +26,15 @@ const PoemPage = ({ poem, book }) => {
     <>
       <Layout>
         <Header />
-        <main>
+        <Content>
           <Poem title={poem.title} body={poem.text} />
-        </main>
+        </Content>
 
         <Footer
           bookSlug={router.query.bookSlug}
           nextPoem={nextPoem}
           previousPoem={previousPoem}
+          pageType={`poem`}
         />
       </Layout>
     </>

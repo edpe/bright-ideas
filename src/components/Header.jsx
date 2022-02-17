@@ -10,7 +10,7 @@ const Header = () => (
         <Link href="/" passHref>
           <p className={styles.navLink}>home</p>
         </Link>
-        <Link href="/" passHref>
+        <Link href="/about" passHref>
           <p className={styles.navLink}>about</p>
         </Link>
       </div>
