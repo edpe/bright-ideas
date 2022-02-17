@@ -1,21 +1,18 @@
 .bookShelf {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-
+  align-items: center;
+  justify-content: space-between;
   @media screen and (max-width: 960px) {
-    flex-direction: column;
+    justify-content: center;
   }
 }
 
 .book {
   cursor: pointer;
-  flex-basis: 33.33333%;
-  margin: 0 1rem;
+  margin: 0 0.25rem;
   padding: 1rem;
-  transition: all 0.8s ease-in-out;
+  transition: box-shadow 0.8s ease-in-out;
   background-color: beige;
 
   &:first-child {
@@ -26,8 +23,8 @@
     margin-right: 0;
   }
   @media screen and (max-width: 960px) {
-    flex-basis: 100%;
-    margin: 1rem;
+    margin: 1rem 0;
+    max-width: 300px;
   }
 
   &:hover {
@@ -37,13 +34,12 @@
 
 .bookImage {
   position: relative;
-  width: 100%;
-  min-height: 200px;
-  min-width: 250px;
+  min-height: 192px;
+  min-width: 281px;
 
   @media screen and (max-width: 960px) {
-    height: 100%;
-    min-width: 90vw;
+    min-height: 175px;
+    min-width: 256px;
   }
 }
 

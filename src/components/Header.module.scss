@@ -5,6 +5,10 @@
   align-items: center;
   border-bottom: 2px solid #ff0080;
   margin: 1rem 0;
+
+  @media screen and (max-width: 800px) {
+    margin: 0.5rem;
+  }
 }
 
 .navLink {
@@ -14,6 +18,10 @@
   color: #474645;
   margin: 0 1rem;
   cursor: pointer;
+
+  @media screen and (max-width: 800px) {
+    font-size: 0.85rem;
+  }
 }
 
 .navWrapper {
