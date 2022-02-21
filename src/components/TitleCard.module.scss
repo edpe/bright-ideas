@@ -1,0 +1,20 @@
+.TitleCard {
+  padding: 0.5rem;
+  min-height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 700px) {
+    min-height: 40px;
+  }
+}
+
+.poemTitle {
+  font-size: 1.25rem;
+  text-align: center;
+  color: white;
+  @media screen and (max-width: 700px) {
+    font-size: 1rem;
+  }
+}
