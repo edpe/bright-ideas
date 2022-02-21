@@ -9,7 +9,7 @@ export const Book = ({ link, book, imageIndex }) => {
       <div className={styles.book}>
         <div className={styles.bookImage}>
           <Image
-            src={`/images/bookImage${imageIndex + 1}.jpeg`}
+            src={`/images/scaledBookImage${imageIndex + 1}.jpeg`}
             layout="fill"
             alt="book image"
           />

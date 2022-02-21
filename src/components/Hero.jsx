@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import styles from "./Hero.module.scss";
 
-const Hero = ({ image, children, width, height }) => (
+const Hero = ({ image, width, height }) => (
   <div className={styles.hero}>
     <Image
       src={image}
@@ -11,7 +11,6 @@ const Hero = ({ image, children, width, height }) => (
       height={height}
       alt="banner image of out of focus trees"
     />
-    <h2 className={styles.heroTitle}>{children}</h2>
   </div>
 );
 

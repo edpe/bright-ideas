@@ -26,21 +26,17 @@ export default function Home({ books }) {
 
         <Content>
           {isMobile ? (
-            <Hero image={`/images/heroImage.png`} width={1024} height={600}>
-              Bright
-              <br />
-              Ideas.
-            </Hero>
+            <Hero
+              image={`/images/heroImageWithText.png`}
+              width={1024}
+              height={600}
+            />
           ) : (
             <Hero
-              image={`/images/heroImageCropped.png`}
+              image={`/images/heroImageWithTextCropped.png`}
               width={1024}
               height={400}
-            >
-              Bright
-              <br />
-              Ideas.
-            </Hero>
+            />
           )}
           <div className="bookShelfPosition">
             <Bookshelf books={books} link="[slug]" />
