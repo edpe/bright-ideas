@@ -46,7 +46,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-const Book = ({ book }) => {
+const Contents = ({ book }) => {
   const isMobile = useMediaQuery(768);
 
   let orderedPoems = [...book.poems].sort((a, b) =>
@@ -151,4 +151,4 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default Book;
+export default Contents;

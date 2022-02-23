@@ -6,6 +6,7 @@ import Header from "../../src/components/Header";
 import Content from "../../src/components/Content";
 import Footer from "../../src/components/Footer";
 import Layout from "../../src/components/Layout";
+import PoemNav from "../../src/components/PoemNav";
 
 const PoemPage = ({ poem, book }) => {
   const router = useRouter();
@@ -29,13 +30,14 @@ const PoemPage = ({ poem, book }) => {
         <Content>
           <Poem title={poem.title} body={poem.text} />
         </Content>
-
-        <Footer
-          bookSlug={router.query.bookSlug}
-          nextPoem={nextPoem}
-          previousPoem={previousPoem}
-          pageType={`poem`}
-        />
+        <Footer>
+          <PoemNav
+            bookSlug={router.query.bookSlug}
+            nextPoem={nextPoem}
+            previousPoem={previousPoem}
+            pageType={`poem`}
+          />
+        </Footer>
       </Layout>
     </>
   );

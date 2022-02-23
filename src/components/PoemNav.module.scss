@@ -1,0 +1,36 @@
+.poemNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.previous {
+  display: flex;
+  font-family: "Ubuntu", sans-serif;
+  flex-direction: column;
+
+  a {
+    color: #474645;
+  }
+}
+
+.next {
+  display: flex;
+  font-family: "Ubuntu", sans-serif;
+  flex-direction: column;
+
+  a {
+    color: #474645;
+  }
+}
+
+.contentsLink {
+  font-family: "Ubuntu", sans-serif;
+  cursor: pointer;
+
+  a {
+    color: #474645;
+  }
+}
