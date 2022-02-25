@@ -1,0 +1,38 @@
+.quotation {
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.quote {
+  font-size: 1.75rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  line-height: 3rem;
+  color: #605f2d;
+  margin: 0;
+
+  @media screen and (max-width: 700px) {
+    font-size: 1rem;
+  }
+}
+
+.citation {
+  display: flex;
+  justify-content: center;
+
+  cite,
+  span {
+    font-style: normal;
+    font-size: 1rem;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    color: #605f2d;
+    padding: 1rem 0.25rem;
+
+    @media screen and (max-width: 700px) {
+      font-size: 0.9rem;
+    }
+  }
+}

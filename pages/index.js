@@ -7,11 +7,28 @@ import Layout from "../src/components/Layout";
 import Content from "../src/components/Content";
 import Bookshelf from "../src/components/Bookshelf";
 import Hero from "../src/components/Hero";
+import Quotation from "../src/components/Quotation";
 
 import useMediaQuery from "../src/hooks/useMediaQuery";
 
 export default function Home({ books }) {
   const isMobile = useMediaQuery(768);
+
+  const quotationContentMobile = () => (
+    <p>
+      Sharing an idea that helps another,
+      <br /> Is the best moment <br />
+      You can ever have - It is a moment of love.
+    </p>
+  );
+
+  const quotationContentDesktop = () => (
+    <p>
+      Sharing an idea that helps another, Is the best moment <br />
+      You can ever have - It is a moment of love.
+    </p>
+  );
+
   return (
     <>
       <Head>
@@ -38,26 +55,27 @@ export default function Home({ books }) {
               height={400}
             />
           )}
-          <div className="bookShelfPosition">
-            <Bookshelf books={books} link="[slug]" />
+          {/* TODO: replace div with vertical spacing component */}
+          <div style={{ margin: isMobile ? "1rem 0" : "2rem 0" }}>
+            <Quotation>
+              Little books of inspirational verse and prose
+              <br />
+              by P J Perkins
+            </Quotation>
+          </div>
+          <Bookshelf books={books} link="[slug]" />
+          <div style={{ margin: "2rem 0" }}>
+            <Quotation
+              cite="/bright-ideas-in-action/the-value-of-a-moment"
+              source="The Value of a Moment"
+              author="P J Perkins"
+            >
+              {isMobile ? quotationContentMobile() : quotationContentDesktop()}
+            </Quotation>
           </div>
         </Content>
-        <Footer bookSlug={""} nextPoem={""} previousPoem={""} />
+        <Footer />
       </Layout>
-
-      <style jsx global>{`
-        html {
-          margin: 0;
-        }
-
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-      `}</style>
     </>
   );
 }
