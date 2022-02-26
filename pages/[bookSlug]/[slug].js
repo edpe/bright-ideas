@@ -7,6 +7,7 @@ import Content from "../../src/components/Content";
 import Footer from "../../src/components/Footer";
 import Layout from "../../src/components/Layout";
 import PoemNav from "../../src/components/PoemNav";
+import BookTitle from "../../src/components/BookTitle";
 
 const PoemPage = ({ poem, book }) => {
   const router = useRouter();
@@ -28,6 +29,9 @@ const PoemPage = ({ poem, book }) => {
       <Layout>
         <Header />
         <Content>
+          <BookTitle linkDestination={router.query.bookSlug}>
+            {book.title}
+          </BookTitle>
           <Poem title={poem.title} body={poem.text} />
         </Content>
         <Footer>
