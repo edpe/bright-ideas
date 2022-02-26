@@ -14,21 +14,6 @@ import useMediaQuery from "../src/hooks/useMediaQuery";
 export default function Home({ books }) {
   const isMobile = useMediaQuery(768);
 
-  const quotationContentMobile = () => (
-    <p>
-      Sharing an idea that helps another,
-      <br /> Is the best moment <br />
-      You can ever have - It is a moment of love.
-    </p>
-  );
-
-  const quotationContentDesktop = () => (
-    <p>
-      Sharing an idea that helps another, Is the best moment <br />
-      You can ever have - It is a moment of love.
-    </p>
-  );
-
   return (
     <>
       <Head>
@@ -58,7 +43,8 @@ export default function Home({ books }) {
           {/* TODO: replace div with vertical spacing component */}
           <div style={{ margin: isMobile ? "1rem 0" : "2rem 0" }}>
             <Quotation>
-              Little books of inspirational verse and prose
+              Little books of inspirational verse {isMobile && <br />}
+              and prose
               <br />
               by P J Perkins
             </Quotation>
@@ -70,7 +56,11 @@ export default function Home({ books }) {
               source="The Value of a Moment"
               author="P J Perkins"
             >
-              {isMobile ? quotationContentMobile() : quotationContentDesktop()}
+              <p>
+                Sharing an idea that helps another,
+                {isMobile && <br />} Is the best moment <br />
+                You can ever have - It is a moment of love.
+              </p>
             </Quotation>
           </div>
         </Content>
