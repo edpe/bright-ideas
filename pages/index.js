@@ -43,8 +43,8 @@ export default function Home({ books }) {
           {/* TODO: replace div with vertical spacing component */}
           <div style={{ margin: isMobile ? "1rem 0" : "2rem 0" }}>
             <Quotation>
-              "Little books of inspirational verse {isMobile && <br />}
-              and prose"
+              Little books of inspirational verse {isMobile && <br />}
+              and prose
               <br />
               by P J Perkins
             </Quotation>
@@ -57,9 +57,9 @@ export default function Home({ books }) {
               author="P J Perkins"
             >
               <p>
-                "Sharing an idea that helps another,
+                Sharing an idea that helps another,
                 {isMobile && <br />} Is the best moment <br />
-                You can ever have - It is a moment of love."
+                You can ever have - It is a moment of love.
               </p>
             </Quotation>
           </div>
