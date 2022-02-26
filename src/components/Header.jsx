@@ -7,7 +7,7 @@ const Header = () => (
     <Link href="/" passHref>
       <h1 className={styles.heading}>
         Bright <br />
-        Ideas
+        Ideas.
       </h1>
     </Link>
 
