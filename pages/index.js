@@ -59,7 +59,7 @@ export default function Home({ books }) {
               <p>
                 "Sharing an idea that helps another,
                 {isMobile && <br />} Is the best moment <br />
-                You can ever have - It is a moment of love.""
+                You can ever have - It is a moment of love."
               </p>
             </Quotation>
           </div>
