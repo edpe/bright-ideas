@@ -24,19 +24,19 @@ const PoemPage = ({ poem, book }) => {
     (poem) => parseInt(poem.poemId) === parseInt(currentPoem?.poemId) - 1
   );
 
+  const bookPage = router.query.bookSlug;
+
   return (
     <>
       <Layout>
         <Header />
         <Content>
-          <BookTitle linkDestination={router.query.bookSlug}>
-            {book.title}
-          </BookTitle>
+          <BookTitle linkDestination={bookPage}>{book.title}</BookTitle>
           <Poem title={poem.title} body={poem.text} />
         </Content>
         <Footer>
           <PoemNav
-            bookSlug={router.query.bookSlug}
+            bookSlug={bookPage}
             nextPoem={nextPoem}
             previousPoem={previousPoem}
             pageType={`poem`}
