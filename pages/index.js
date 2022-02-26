@@ -14,6 +14,22 @@ import useMediaQuery from "../src/hooks/useMediaQuery";
 export default function Home({ books }) {
   const isMobile = useMediaQuery(768);
 
+  const subtitle = () => (
+    <p>
+      Little books of inspirational verse and prose
+      <br />
+      <p
+        style={{
+          fontSize: isMobile ? "1rem" : "1.5rem",
+          textAlign: "right",
+          margin: "0",
+        }}
+      >
+        - P J Perkins
+      </p>
+    </p>
+  );
+
   return (
     <>
       <Head>
@@ -25,30 +41,24 @@ export default function Home({ books }) {
       </Head>
       <Layout>
         <Header />
-
         <Content>
           {isMobile ? (
             <Hero
               image={`/images/heroImageWithText.png`}
               width={1024}
               height={600}
+              subtitle={subtitle()}
             />
           ) : (
             <Hero
               image={`/images/heroImageWithTextCropped.png`}
               width={1024}
               height={400}
+              subtitle={subtitle()}
             />
           )}
           {/* TODO: replace div with vertical spacing component */}
-          <div style={{ margin: isMobile ? "1rem 0" : "2rem 0" }}>
-            <Quotation>
-              Little books of inspirational verse {isMobile && <br />}
-              and prose
-              <br />
-              by P J Perkins
-            </Quotation>
-          </div>
+
           <Bookshelf books={books} link="[slug]" />
           <div style={{ margin: "2rem 0" }}>
             <Quotation
