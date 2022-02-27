@@ -114,6 +114,7 @@ export async function getStaticProps({ params }) {
       poem: data.poems[0],
       book: data.books[0],
     },
+    revalidate: 3600,
   };
 }
 
