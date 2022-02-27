@@ -1,5 +1,6 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import useMediaQuery from "../../src/hooks/useMediaQuery";
 
@@ -48,6 +49,7 @@ function getRandomInt(max) {
 
 const Contents = ({ book }) => {
   const isMobile = useMediaQuery(768);
+  const [accessibleContrastPairs, setAccessibleContrastPairs] = useState([]);
 
   let orderedPoems = [...book.poems].sort((a, b) =>
     parseInt(a.poemId) > parseInt(b.poemId) ? 1 : -1
@@ -55,21 +57,25 @@ const Contents = ({ book }) => {
 
   const currentPage = book.slug;
 
-  const randomColorArray = [];
+  useEffect(() => {
+    const randomColorArray = [];
 
-  for (let i = 0; i < book.poems.length; i++) {
-    const palette = palettes[getRandomInt(3)];
-    randomColorArray.push(palette[makeUniqueRandom(5)]);
-  }
+    for (let i = 0; i < book.poems.length; i++) {
+      const palette = palettes[getRandomInt(3)];
+      randomColorArray.push(palette[makeUniqueRandom(5)]);
+    }
 
-  const accessibleContrastPairs = [];
+    const accessibleContrastPairs = [];
 
-  randomColorArray.map((color) => {
-    accessibleContrastPairs.push({
-      bgColor: color,
-      textColor: getContrastYIQ(color),
+    randomColorArray.map((color) => {
+      accessibleContrastPairs.push({
+        bgColor: color,
+        textColor: getContrastYIQ(color),
+      });
     });
-  });
+
+    setAccessibleContrastPairs(accessibleContrastPairs);
+  }, [book.poems.length]);
 
   return (
     <>
@@ -82,8 +88,8 @@ const Contents = ({ book }) => {
                 <Link href={`/${currentPage}/${poem.slug}`} passHref>
                   <a>
                     <TitleCard
-                      bgColor={accessibleContrastPairs[index].bgColor}
-                      textColor={accessibleContrastPairs[index].textColor}
+                      bgColor={accessibleContrastPairs[index]?.bgColor}
+                      textColor={accessibleContrastPairs[index]?.textColor}
                     >
                       {poem.title}
                     </TitleCard>
