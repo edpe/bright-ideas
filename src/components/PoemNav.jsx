@@ -25,7 +25,7 @@ const PoemNav = ({ bookSlug, nextPoem, previousPoem, pageType }) => {
               </Link>
             </div>
           ) : (
-            <ContentsLink link={bookSlug} />
+            <ContentsLink link={`/${bookSlug}`} />
           )}
           {nextPoem ? (
             <div className={styles.next}>

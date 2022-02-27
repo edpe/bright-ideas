@@ -39,7 +39,7 @@ const PoemPage = ({ poem, book }) => {
             bookSlug={bookPage}
             nextPoem={nextPoem}
             previousPoem={previousPoem}
-            pageType={`poem`}
+            pageType={"poem"}
           />
         </Footer>
       </Layout>
