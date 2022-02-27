@@ -7,22 +7,51 @@
 }
 
 .previous {
-  display: flex;
   font-family: "Ubuntu", sans-serif;
-  flex-direction: column;
+  color: #474645;
+  text-decoration: none;
+  align-items: center;
+  padding-top: 1rem;
 
-  a {
+  &:before {
     color: #474645;
+    position: relative;
+    top: 2px;
+    left: 0;  
+    background-image: url(/images/arrow.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    content: " ";
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    transform: rotate(180deg);
+    margin-right: 0.5rem;
   }
 }
 
 .next {
-  display: flex;
-  font-family: "Ubuntu", sans-serif;
-  flex-direction: column;
+   font-family: "Ubuntu", sans-serif;
+  color: #474645;
+  text-decoration: none;
+  align-items: center;
+  padding-top: 1rem;
 
-  a {
+  &:after {
     color: #474645;
+    position: relative;
+    top: 2px;
+    left: 0;  
+    background-image: url(/images/arrow.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    content: " ";
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    margin-left: 0.5rem;
   }
 }
 
