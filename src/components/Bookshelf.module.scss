@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  padding: 0;
   @media screen and (max-width: 700px) {
     justify-content: center;
   }
@@ -16,6 +17,7 @@
   min-width: 27%;
   padding-bottom: 1rem;
   border-radius: 0 0 4px 4px;
+  list-style: none;
 
   &:first-child {
     margin-left: 0;
@@ -53,4 +55,10 @@
   padding: 0.25rem;
   font-weight: 400;
   color: #474645;
+  padding: 1rem;
+
+  @media screen and (max-width: 700px) {
+    font-size: 1.25rem;
+    padding: 0.5rem;
+  }
 }

@@ -40,7 +40,7 @@ function getContrastYIQ(hexcolor) {
   var g = parseInt(hexcolor.substr(2, 2), 16);
   var b = parseInt(hexcolor.substr(4, 2), 16);
   var yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq >= 128 ? "#382e31" : "#fff";
+  return yiq >= 128 ? "#0B090A" : "#fff";
 }
 
 function getRandomInt(max) {
@@ -82,6 +82,7 @@ const Contents = ({ book }) => {
       <Layout>
         <Header />
         <Content>
+          <title>{book.title}</title>
           <TileContainer>
             {orderedPoems.map((poem, index) => (
               <li key={poem.poemId}>

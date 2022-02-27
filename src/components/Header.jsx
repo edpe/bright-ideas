@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./Header.module.scss";
 
 const Header = () => (
-  <div className={styles.header}>
+  <header className={styles.header}>
     <Link href="/" passHref>
       <h1 className={styles.heading}>
         Bright <br />
@@ -21,7 +21,7 @@ const Header = () => (
         </Link>
       </div>
     </nav>
-  </div>
+  </header>
 );
 
 export default Header;

@@ -6,7 +6,7 @@ import styles from "./Bookshelf.module.scss";
 export const Book = ({ link, book, imageIndex }) => {
   return (
     <Link href={link} as={`/${book.slug}`} passHref>
-      <div className={styles.book}>
+      <li className={styles.book}>
         <div className={styles.bookImage}>
           <Image
             src={`/images/scaledBookImage${imageIndex + 1}.jpeg`}
@@ -14,19 +14,25 @@ export const Book = ({ link, book, imageIndex }) => {
             alt="book image"
           />
         </div>
-        <h3 className={styles.bookTitle}>{book.title}</h3>
-      </div>
+        <h2 className={styles.bookTitle}>{book.title}</h2>
+      </li>
     </Link>
   );
 };
 
 const Bookshelf = ({ books, link }) => {
   return (
-    <div className={styles.bookShelf}>
+    <ul className={styles.bookShelf}>
       {books.map((book, index) => (
-        <Book key={book.id} book={book} link={link} imageIndex={index} />
+        <Book
+          key={book.id}
+          book={book}
+          link={link}
+          imageIndex={index}
+          tabIndex={index}
+        />
       ))}
-    </div>
+    </ul>
   );
 };
 export default Bookshelf;

@@ -15,9 +15,11 @@ export default function Home({ books }) {
   const isMobile = useMediaQuery(768);
 
   const subtitle = () => (
-    <p>
-      Little books of inspirational verse and prose
-      <br />
+    <>
+      <p>
+        Little books of inspirational verse and prose
+        <br />
+      </p>
       <p
         style={{
           fontSize: isMobile ? "1rem" : "1.5rem",
@@ -27,7 +29,7 @@ export default function Home({ books }) {
       >
         - P J Perkins
       </p>
-    </p>
+    </>
   );
 
   return (
