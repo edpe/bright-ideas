@@ -6,7 +6,7 @@ const Footer = ({ children }) => {
     <contentinfo className={styles.footer}>
       <div>{children}</div>
       <p className={styles.copyright}>
-        Copyright © 2020 Ed Perkins. All rights reserved.
+        Copyright © 2022 Ed Perkins. All rights reserved.
       </p>
     </contentinfo>
   );
