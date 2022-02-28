@@ -43,7 +43,7 @@ export default function Home({ books }) {
       </Head>
       <Layout>
         <Header />
-        <Content>
+        <Content noScroll>
           {isMobile ? (
             <Hero
               image={`/images/heroImageWithText.png`}
