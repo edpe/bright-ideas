@@ -4,9 +4,9 @@
   width: 100%;
   margin: 1rem 0 0 0;
   border-top: 2px solid #ff0080;
-  min-height: 4rem;
+  height: 8vh;
   @media screen and (max-width: 800px) {
-    min-height: 2rem;
+    height: 8vh;
     margin: 1rem 0 0 0;
   }
 }
