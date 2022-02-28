@@ -1,12 +1,12 @@
 .footer {
+  position: sticky;
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 1rem 0 0 0;
   border-top: 2px solid #ff0080;
   height: 8vh;
   @media screen and (max-width: 800px) {
-    max-height: 6vh;
+    height: 4vh;
     margin: 1rem 0 0 0;
   }
 }

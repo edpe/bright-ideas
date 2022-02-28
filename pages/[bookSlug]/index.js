@@ -82,7 +82,7 @@ const Contents = ({ book }) => {
     <>
       <Layout>
         <Header />
-        <Content>
+        <Content noScroll>
           <title>{book.title}</title>
           <Booktitle>{book.title}</Booktitle>
           <TileContainer>

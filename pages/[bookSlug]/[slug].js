@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { useRouter } from "next/router";
 import Poem from "../../src/components/Poem";
@@ -11,6 +11,7 @@ import BookTitle from "../../src/components/BookTitle";
 
 const PoemPage = ({ poem, book }) => {
   const router = useRouter();
+  const topOfPoemRef = useRef(null);
 
   const currentPoem = book.poems.find(
     (poem) => poem.slug === router.query.slug
@@ -26,16 +27,21 @@ const PoemPage = ({ poem, book }) => {
 
   const bookPage = router.query.bookSlug;
 
+  const executeScroll = () => topOfPoemRef.current.scrollIntoView();
+
   return (
     <>
       <Layout>
         <Header />
         <Content>
-          <BookTitle linkDestination={bookPage}>{book.title}</BookTitle>
-          <Poem title={poem.title} body={poem.text} />
+          <div ref={topOfPoemRef}>
+            <BookTitle linkDestination={bookPage}>{book.title}</BookTitle>
+            <Poem title={poem.title} body={poem.text} />
+          </div>
         </Content>
         <Footer>
           <PoemNav
+            onClick={executeScroll}
             bookSlug={bookPage}
             nextPoem={nextPoem}
             previousPoem={previousPoem}
