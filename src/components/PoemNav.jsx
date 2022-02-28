@@ -4,9 +4,9 @@ import styles from "./PoemNav.module.scss";
 
 const ContentsLink = ({ link }) => {
   return (
-      <Link href={link} passHref>
-        <a className={styles.contentsLink}>Back to contents</a>
-      </Link>
+    <Link href={link} passHref>
+      <a className={styles.contentsLink}>Contents</a>
+    </Link>
   );
 };
 
@@ -16,16 +16,16 @@ const PoemNav = ({ bookSlug, nextPoem, previousPoem, pageType }) => {
       {pageType === "poem" && (
         <div className={styles.poemNav}>
           {previousPoem ? (
-            <Link href={`/${bookSlug}/${previousPoem.slug}`} >
-              <a className={styles.previous}>{previousPoem.title}</a> 
-              </Link>
+            <Link href={`/${bookSlug}/${previousPoem.slug}`}>
+              <a className={styles.previous}>Back</a>
+            </Link>
           ) : (
             <ContentsLink link={`/${bookSlug}`} />
           )}
           {nextPoem ? (
-              <Link href={`/${bookSlug}/${nextPoem.slug}`}>
-                <a className={styles.next}>{nextPoem.title}</a>
-              </Link>
+            <Link href={`/${bookSlug}/${nextPoem.slug}`}>
+              <a className={styles.next}>Next</a>
+            </Link>
           ) : (
             <ContentsLink link={`/${bookSlug}`} />
           )}

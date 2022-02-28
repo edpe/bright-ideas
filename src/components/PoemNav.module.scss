@@ -11,13 +11,22 @@
   color: #474645;
   text-decoration: none;
   align-items: center;
-  padding-top: 1rem;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 32px;
+  border: 2px solid #474645;
+  margin: 1rem;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background-color: #d3c2b9;
+  }
 
   &:before {
     color: #474645;
     position: relative;
     top: 2px;
-    left: 0;  
+    left: 0;
     background-image: url(/images/arrow.svg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -32,17 +41,26 @@
 }
 
 .next {
-   font-family: "Ubuntu", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   color: #474645;
   text-decoration: none;
   align-items: center;
-  padding-top: 1rem;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 32px;
+  border: 2px solid #474645;
+  margin: 1rem;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background-color: #b9bdd3;
+  }
 
   &:after {
     color: #474645;
     position: relative;
     top: 2px;
-    left: 0;  
+    left: 0;
     background-image: url(/images/arrow.svg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -57,9 +75,17 @@
 
 .contentsLink {
   font-family: "Ubuntu", sans-serif;
-  cursor: pointer;
+  color: #474645;
+  text-decoration: none;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 32px;
+  border: 2px solid #474645;
+  margin: 1rem;
+  transition: all 0.4s ease-in-out;
 
-  a {
-    color: #474645;
+  &:hover {
+    background-color: #b9d3cf;
   }
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Booktitle = ({ children, linkDestination }) => (
   <Link href={`/${linkDestination}`} passHref>
-    <div className={styles.bookTitle}>{children}</div>
+    <a className={styles.bookTitle}>{children}</a>
   </Link>
 );
 
