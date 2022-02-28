@@ -7,30 +7,85 @@
 }
 
 .previous {
-  display: flex;
   font-family: "Ubuntu", sans-serif;
-  flex-direction: column;
+  color: #474645;
+  text-decoration: none;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 32px;
+  border: 2px solid #474645;
+  margin: 1rem;
+  transition: all 0.4s ease-in-out;
 
-  a {
+  &:hover {
+    background-color: #d3c2b9;
+  }
+
+  &:before {
     color: #474645;
+    position: relative;
+    top: 2px;
+    left: 0;
+    background-image: url(/images/arrow.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    content: " ";
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    transform: rotate(180deg);
+    margin-right: 0.5rem;
   }
 }
 
 .next {
-  display: flex;
   font-family: "Ubuntu", sans-serif;
-  flex-direction: column;
+  color: #474645;
+  text-decoration: none;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 32px;
+  border: 2px solid #474645;
+  margin: 1rem;
+  transition: all 0.4s ease-in-out;
 
-  a {
+  &:hover {
+    background-color: #b9bdd3;
+  }
+
+  &:after {
     color: #474645;
+    position: relative;
+    top: 2px;
+    left: 0;
+    background-image: url(/images/arrow.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    content: " ";
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    margin-left: 0.5rem;
   }
 }
 
 .contentsLink {
   font-family: "Ubuntu", sans-serif;
-  cursor: pointer;
+  color: #474645;
+  text-decoration: none;
+  align-items: center;
+  text-align: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 32px;
+  border: 2px solid #474645;
+  margin: 1rem;
+  transition: all 0.4s ease-in-out;
 
-  a {
-    color: #474645;
+  &:hover {
+    background-color: #b9d3cf;
   }
 }
