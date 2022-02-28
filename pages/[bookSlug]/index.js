@@ -10,6 +10,7 @@ import Content from "../../src/components/Content";
 import Footer from "../../src/components/Footer";
 import TitleCard from "../../src/components/TitleCard";
 import TileContainer from "../../src/components/TileContainer";
+import Booktitle from "../../src/components/BookTitle";
 
 const palette1 = ["#2E4660", "#60935D", "#BAB700", "#FF579F", "#8B92E5"];
 const palette2 = ["#F5E0B7", "#D6BA73", "#8BBF9F", "#857E7B", "#59344F"];
@@ -83,6 +84,7 @@ const Contents = ({ book }) => {
         <Header />
         <Content>
           <title>{book.title}</title>
+          <Booktitle>{book.title}</Booktitle>
           <TileContainer>
             {orderedPoems.map((poem, index) => (
               <li key={poem.poemId}>

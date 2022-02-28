@@ -13,10 +13,11 @@
   align-items: center;
   text-align: center;
   padding: 0.5rem 0.75rem;
+  margin: 1rem 0;
   border-radius: 32px;
   border: 2px solid #474645;
-  margin: 1rem;
   transition: all 0.4s ease-in-out;
+  background-color: transparent;
 
   &:hover {
     background-color: #d3c2b9;
@@ -49,8 +50,9 @@
   padding: 0.5rem 0.75rem;
   border-radius: 32px;
   border: 2px solid #474645;
-  margin: 1rem;
+  margin: 1rem 0;
   transition: all 0.4s ease-in-out;
+  background-color: transparent;
 
   &:hover {
     background-color: #b9bdd3;
@@ -82,8 +84,9 @@
   padding: 0.5rem 0.75rem;
   border-radius: 32px;
   border: 2px solid #474645;
-  margin: 1rem;
+  margin: 1rem 0;
   transition: all 0.4s ease-in-out;
+  background-color: transparent;
 
   &:hover {
     background-color: #b9d3cf;
