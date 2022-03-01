@@ -3,7 +3,7 @@ import styles from "./Content.module.scss";
 
 const Content = ({ children, noScroll }) => (
   <main
-    style={noScroll ? { maxHheight: "100%" } : { maxHeight: "72vh" }}
+    style={noScroll ? { maxHheight: "100%" } : { maxHeight: "70vh" }}
     className={styles.content}
   >
     {children}

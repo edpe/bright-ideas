@@ -34,11 +34,12 @@ const PoemPage = ({ poem, book }) => {
       <Layout>
         <Header />
 
-        <span ref={topOfPoemRef} />
-        <Content>
-          <BookTitle linkDestination={bookPage}>{book.title}</BookTitle>
-          <Poem title={poem.title} body={poem.text} />
-        </Content>
+        <div ref={topOfPoemRef}>
+          <Content>
+            <BookTitle linkDestination={bookPage}>{book.title}</BookTitle>
+            <Poem title={poem.title} body={poem.text} />
+          </Content>
+        </div>
 
         <Footer>
           <PoemNav
