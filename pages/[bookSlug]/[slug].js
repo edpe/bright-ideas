@@ -33,12 +33,13 @@ const PoemPage = ({ poem, book }) => {
     <>
       <Layout>
         <Header />
+
+        <span ref={topOfPoemRef} />
         <Content>
-          <div ref={topOfPoemRef}>
-            <BookTitle linkDestination={bookPage}>{book.title}</BookTitle>
-            <Poem title={poem.title} body={poem.text} />
-          </div>
+          <BookTitle linkDestination={bookPage}>{book.title}</BookTitle>
+          <Poem title={poem.title} body={poem.text} />
         </Content>
+
         <Footer>
           <PoemNav
             onClick={executeScroll}
