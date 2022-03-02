@@ -2,8 +2,6 @@ import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import useMediaQuery from "../../src/hooks/useMediaQuery";
-
 import Header from "../../src/components/Header";
 import Layout from "../../src/components/Layout";
 import Content from "../../src/components/Content";
@@ -49,7 +47,6 @@ function getRandomInt(max) {
 }
 
 const Contents = ({ book }) => {
-  const isMobile = useMediaQuery(768);
   const [accessibleContrastPairs, setAccessibleContrastPairs] = useState([]);
 
   let orderedPoems = [...book.poems].sort((a, b) =>
