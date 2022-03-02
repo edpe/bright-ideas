@@ -41,7 +41,7 @@ const PoemPage = ({ poem, book }) => {
           </Content>
         </div>
 
-        <Footer>
+        <Footer fullHeight>
           <PoemNav
             onClick={executeScroll}
             bookSlug={bookPage}
