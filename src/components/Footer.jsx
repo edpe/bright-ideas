@@ -6,7 +6,7 @@ const Footer = ({ children, fullHeight }) => {
     <footer
       role="contentinfo"
       className={styles.footer}
-      style={fullHeight ? { height: "100%" } : { height: undefined }}
+      style={fullHeight ? { height: "auto" } : { height: undefined }}
     >
       <div>{children}</div>
       <p className={styles.copyright}>
