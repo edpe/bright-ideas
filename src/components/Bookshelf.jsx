@@ -14,7 +14,10 @@ export const Book = ({ link, book, imageIndex }) => {
             alt="book image"
           />
         </div>
-        <h2 className={styles.bookTitle}>{book.title}</h2>
+        <h2 className={styles.bookTitle}>{`${book.title} (${book.created.slice(
+          0,
+          4
+        )})`}</h2>
       </li>
     </Link>
   );

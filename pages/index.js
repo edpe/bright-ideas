@@ -8,28 +8,15 @@ import Content from "../src/components/Content";
 import Bookshelf from "../src/components/Bookshelf";
 import Hero from "../src/components/Hero";
 import Quotation from "../src/components/Quotation";
+import Subtitle from "../src/components/Subtitle";
 
 import useMediaQuery from "../src/hooks/useMediaQuery";
 
 export default function Home({ books }) {
   const isMobile = useMediaQuery(768);
 
-  const subtitle = () => (
-    <>
-      <p>
-        Little books of inspirational verse and prose
-        <br />
-      </p>
-      <p
-        style={{
-          fontSize: isMobile ? "1rem" : "1.5rem",
-          textAlign: "right",
-          margin: "0",
-        }}
-      >
-        - P J Perkins
-      </p>
-    </>
+  let orderedBooks = [...books].sort((a, b) =>
+    parseInt(a.bookId) > parseInt(b.bookId) ? 1 : -1
   );
 
   return (
@@ -48,20 +35,22 @@ export default function Home({ books }) {
             <Hero
               image={`/images/heroImageWithText.png`}
               width={1024}
-              height={600}
-              subtitle={subtitle()}
-            />
+              height={500}
+            >
+              <Subtitle />
+            </Hero>
           ) : (
             <Hero
-              image={`/images/heroImageWithTextCropped.png`}
+              image={`/images/hero_image_only.png`}
               width={1024}
-              height={400}
-              subtitle={subtitle()}
-            />
+              height={500}
+            >
+              <Subtitle />
+            </Hero>
           )}
           {/* TODO: replace div with vertical spacing component */}
 
-          <Bookshelf books={books} link="[slug]" />
+          <Bookshelf books={orderedBooks} link="[slug]" />
           <div style={{ margin: "2rem 0" }}>
             <Quotation
               cite="/bright-ideas-in-action/the-value-of-a-moment"
@@ -93,7 +82,9 @@ export async function getStaticProps() {
       query getBooks {
         books {
           id
+          bookId
           title
+          created
           slug
           poems {
             id

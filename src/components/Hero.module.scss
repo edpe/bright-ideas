@@ -1,9 +1,39 @@
 .hero {
   margin: 1rem 0;
   position: relative;
+  background-image: url("/images/hero_image_only.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+
+  @media screen and (max-width: 1024px) {
+    max-height: 380px;
+  }
 }
 
 .hero span img:hover {
   filter: saturate(2);
   transition: all 0.5s ease-in-out;
+}
+
+.heroTitle {
+  font-size: 8rem;
+  font-family: "Ubuntu", sans-serif;
+  padding: 1.5rem 2rem;
+  font-weight: 500;
+  margin: 0;
+  color: #ff0080;
+  position: relative;
+  top: 0;
+  left: 0;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 3rem;
+    padding: 1rem 1.5rem;
+  }
 }

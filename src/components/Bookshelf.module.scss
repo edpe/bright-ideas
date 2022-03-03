@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0;
-  @media screen and (max-width: 700px) {
+  margin-top: 2rem;
+  @media screen and (max-width: 1024px) {
     justify-content: center;
   }
 }
@@ -14,9 +15,9 @@
   margin: 0 0.25rem;
   transition: box-shadow 0.4s ease-in-out;
   background-color: #d3c2b9;
-  min-width: 27%;
+  min-width: 280px;
   padding-bottom: 1rem;
-  border-radius: 0 0 4px 4px;
+  border-radius: 2px;
   list-style: none;
 
   &:first-child {
@@ -28,7 +29,7 @@
     margin-right: 0;
     background-color: #b9bdd3;
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1024px) {
     margin: 1rem 0;
     width: 100%;
   }
@@ -44,6 +45,8 @@
   height: 100%;
   position: relative;
   padding-bottom: 66.6666%;
+  border-radius: 2px 2px 0 0;
+  overflow: hidden;
 }
 
 .bookTitle {
@@ -56,8 +59,9 @@
   font-weight: 400;
   color: #474645;
   padding: 1rem;
+  font-size: 1.2rem;
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1024px) {
     font-size: 1.25rem;
     padding: 0.5rem;
   }

@@ -4,16 +4,17 @@ import Image from "next/image";
 import Caption from "./Caption";
 import styles from "./Hero.module.scss";
 
-const Hero = ({ image, width, height, subtitle }) => {
+const Hero = ({ image, width, height, children }) => {
   return (
-    <div className={styles.hero}>
-      <Image
-        src={image}
-        width={width}
-        height={height}
-        alt="banner image of out of focus trees"
-      />
-      <Caption>{subtitle}</Caption>
+    <div className={styles.hero} style={{ height: height }}>
+      <div className={styles.heroTitleWrapper}>
+        <h2 className={styles.heroTitle}>
+          Bright
+          <br />
+          Ideas.
+        </h2>
+      </div>
+      <Caption>{children}</Caption>
     </div>
   );
 };

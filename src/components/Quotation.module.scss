@@ -17,7 +17,7 @@
     margin: 0;
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1024px) {
     font-size: 1.25rem;
     line-height: 3rem;
   }
@@ -36,7 +36,7 @@
     color: #474645;
     padding: 1rem 0.25rem;
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 1024px) {
       font-size: 1rem;
       font-weight: 400;
     }
