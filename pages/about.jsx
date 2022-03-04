@@ -14,14 +14,13 @@ const about = () => (
           <div className={styles.text}>
             <p>
               Bright Ideas is an archive for the poems of Pat Perkins. It
-              features previous poetry collections Bright Ideas (2001), More
-              Bright Ideas (2004) and a new, previously unpublished collection,
-              Bright Ideas in Action written in 2013.
+              features previous poetry collections Bright Ideas (2003), More
+              Bright Ideas (2008) and a new, previously unpublished collection,
+              Bright Ideas in Action written in 2012.
             </p>
             <p>
-              This site has been designed and written by her son, Ed Perkins
-              with help from her daughter Sara Perkins who did a lot of the
-              typing.
+              This site has been designed and written by Ed Perkins with help
+              digitizing the poems from Sara Perkins.
             </p>
             <p>
               {
