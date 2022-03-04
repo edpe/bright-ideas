@@ -9,6 +9,7 @@ import Bookshelf from "../src/components/Bookshelf";
 import Hero from "../src/components/Hero";
 import Quotation from "../src/components/Quotation";
 import Subtitle from "../src/components/Subtitle";
+import Separator from "../src/components/Separator";
 
 import useMediaQuery from "../src/hooks/useMediaQuery";
 
@@ -52,6 +53,7 @@ export default function Home({ books }) {
 
           <Bookshelf books={orderedBooks} link="[slug]" />
           <div style={{ margin: "2rem 0" }}>
+            <Separator />
             <Quotation
               cite="/bright-ideas-in-action/the-value-of-a-moment"
               source="The Value of a Moment"
@@ -63,6 +65,7 @@ export default function Home({ books }) {
                 You can ever have - It is a moment of love.
               </p>
             </Quotation>
+            <Separator />
           </div>
         </Content>
         <Footer />
