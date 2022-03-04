@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 import Caption from "./Caption";
 import styles from "./Hero.module.scss";
