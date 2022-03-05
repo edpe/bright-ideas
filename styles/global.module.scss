@@ -13,16 +13,28 @@
   font-weight: 300;
 }
 
-.fullPageHeightCentre {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-}
-
-.halfPage {
-  max-width: 600px;
-}
-
 .a {
   text-decoration: none;
+}
+
+.content {
+  display: flex;
+
+  @media screen and (max-width: 1024px) {
+    margin-top: 100px;
+    flex-direction: column;
+  }
+}
+
+.photo {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  width: 500px;
+  height: 500px;
+  border-radius: 2px;
+
+  @media screen and (max-width: 1024px) {
+    width: 300px;
+    height: 300px;
+  }
 }
