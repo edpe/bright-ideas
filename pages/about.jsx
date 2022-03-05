@@ -20,8 +20,8 @@ const about = () => (
             </p>
             <p>
               This site has been designed and written by Ed Perkins with help
-              digitizing the poems from Sara Perkins. As an arist, Pat had a
-              love of vibrancy and color and the site has been designed to
+              digitizing the poems from Sara Perkins. As an artist, Pat had a
+              love of vibrancy and colour and the site has been designed to
               reflect this, featuring some of her favourites.
             </p>
 
