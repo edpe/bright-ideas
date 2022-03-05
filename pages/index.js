@@ -8,7 +8,6 @@ import Content from "../src/components/Content";
 import Bookshelf from "../src/components/Bookshelf";
 import Hero from "../src/components/Hero";
 import Quotation from "../src/components/Quotation";
-import Subtitle from "../src/components/Subtitle";
 import Separator from "../src/components/Separator";
 
 import useMediaQuery from "../src/hooks/useMediaQuery";
@@ -85,17 +84,13 @@ export default function Home({ books }) {
               image={`/images/heroImageWithText.png`}
               width={1024}
               height={500}
-            >
-              <Subtitle />
-            </Hero>
+            />
           ) : (
             <Hero
               image={`/images/hero_image_only.png`}
               width={1024}
               height={500}
-            >
-              <Subtitle />
-            </Hero>
+            />
           )}
           {/* TODO: replace div with vertical spacing component */}
 

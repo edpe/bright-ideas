@@ -1,9 +1,8 @@
 import React from "react";
 
-import Caption from "./Caption";
 import styles from "./Hero.module.scss";
 
-const Hero = ({ children }) => {
+const Hero = () => {
   return (
     <div className={styles.hero}>
       <div className={styles.heroTitleWrapper}>
@@ -13,7 +12,13 @@ const Hero = ({ children }) => {
           Ideas.
         </h2>
       </div>
-      <Caption>{children}</Caption>
+
+      <div className={styles.subtitleWrapper}>
+        <h2 className={styles.subtitle}>
+          Little books of inspirational verse and prose
+        </h2>
+        <p className={styles.author}>- P J Perkins</p>
+      </div>
     </div>
   );
 };
