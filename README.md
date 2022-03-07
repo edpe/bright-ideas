@@ -1,16 +1,5 @@
 ##Bright Ideas
 
-###To do:
+A NextJS app with a Strapi CMS to display poems that my mum wrote
 
-- Images for contents (and poem pages?)
-- Navigation between pages
-- Global Navigation
-- Mobile navigation
-- About page
-
-###Refactor:
-
-- Extract components where necessary
-- Use CSS Modules
-- Use TypeScript
-- Use Storybook
+Can be viewed here https://bright-ideas.vercel.app/
