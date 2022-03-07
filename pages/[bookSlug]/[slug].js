@@ -36,6 +36,7 @@ const PoemPage = ({ poem, book }) => {
 
         <div ref={topOfPoemRef}>
           <Content>
+            <title>{poem.title}</title>
             <BookTitle linkDestination={bookPage}>{book.title}</BookTitle>
             <Poem title={poem.title} body={poem.text} />
           </Content>
