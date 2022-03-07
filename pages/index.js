@@ -52,7 +52,11 @@ export default function Home({ books }) {
         <meta name="twitter:image" content={metaData.image}></meta>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
 
         <link
           rel="apple-touch-icon"
