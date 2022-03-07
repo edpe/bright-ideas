@@ -2,6 +2,11 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Bookshelf.module.scss";
+import bookImage1 from "../../public/images/bookImage1.webp";
+import bookImage2 from "../../public/images/bookImage2.webp";
+import bookImage3 from "../../public/images/bookImage3.webp";
+
+const bookImage = [bookImage1, bookImage2, bookImage3];
 
 export const Book = ({ link, book, imageIndex }) => {
   return (
@@ -9,9 +14,10 @@ export const Book = ({ link, book, imageIndex }) => {
       <li className={styles.book}>
         <div className={styles.bookImage}>
           <Image
-            src={`/images/bookImage${imageIndex + 1}.jpeg`}
+            src={bookImage[imageIndex]}
             layout="fill"
             alt="book image"
+            placeholder="blur"
           />
         </div>
         <h2 className={styles.bookTitle}>{`${book.title} (${book.created.slice(
